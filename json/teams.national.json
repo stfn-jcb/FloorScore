@@ -1,0 +1,42 @@
+{
+    "pakenham":
+        {
+            "name":"Pakenham Squishees", 
+            "img":"./img/team-img/pakenham.png",
+            "img-clr":"black",
+            "bg-clr":"rgb(255,222,0)",
+            "tx-clr":"rgb(6,103,58)"
+        },
+    "canberra-men":
+        {
+            "name":"Canberra Chargers", 
+            "img":"./img/team-img/ChargersClearNotext-02.png",
+            "img-clr":"black",
+            "bg-clr":"rgb(255,205,5)",
+            "tx-clr":"rgb(0,43,94)"
+        },
+    "canberra-men-gold":
+        {
+            "name":"Canberra Chargers Gold", 
+            "img":"./img/team-img/ChargersClearNotext-02.png",
+            "img-clr":"black",
+            "bg-clr":"rgb(255,205,5)",
+            "tx-clr":"rgb(0,43,94)"
+        },
+    "canberra-men-blue":
+        {
+            "name":"Canberra Chargers Blue", 
+            "img":"./img/team-img/ChargersClearNotext-02.png",
+            "img-clr":"black",
+            "bg-clr":"rgb(0,43,94)",
+            "tx-clr":"rgb(255,205,5)"
+        },
+    "canberra-women":
+        {
+            "name":"Canberra Chargettes", 
+            "img":"./img/team-img/ChargettesClearNotext-01.png",
+            "img-clr":"black",
+            "bg-clr":"rgb(255,205,5)",
+            "tx-clr":"rgb(0,43,94)"
+        }
+}

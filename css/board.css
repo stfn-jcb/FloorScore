@@ -1,0 +1,39 @@
+#match-timer {
+    font-family: "Lucida Console", monospace;
+    font-size: 48pt;
+}
+
+#match-period {
+    /*text-align: center;*/
+    font-family: "Impact", serif;
+    font-size: 32pt;
+}
+
+div.half {
+    float: left;
+    width: 50%;
+    /*height: 100%;*/
+}
+
+.team-img {
+    width: 150px;
+    height: 150px;
+    /*background: yellow;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.team-score {
+    width: 150px;
+    height: 150px;
+    font-family: "Lucida Console", monospace;
+    font-size: 80px;
+    line-height: 150px;
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    float: left;
+}
