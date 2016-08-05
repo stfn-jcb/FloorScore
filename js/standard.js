@@ -47,7 +47,7 @@ function resetGame() {
                     // console.log('Timer complete, resetting');
                     return;
                 }
-                currentTime -= incrementTime / 10;
+                currentTime -= (incrementTime / 10) * 1.02; // Fudge for interval issues
                 if (currentTime < 0) currentTime = 0;
             },
             timerComplete = function() {
