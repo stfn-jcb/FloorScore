@@ -28,6 +28,8 @@
     <tr><td><input type='button' value='-1 min' onclick='MatchClockTock.alterTime(-60.)' /></td>
         <td><input type='button' value='-10 sec' onclick='MatchClockTock.alterTime(-10.)' /></td>
         <td><input type='button' value='-1 sec' onclick='MatchClockTock.alterTime(-1.)' /></td></tr>
+    <tr><td><input type='button' value='+ period' onclick='alterPeriod(1)' /></td>
+        <td><input type='button' value='- period' onclick='alterPeriod(-1)' /></td></tr>
     </table>
         No periods: <select id='match-timer-no-periods'></select><br />
         Len. period: <select id='match-timer-len-period'></select><br />

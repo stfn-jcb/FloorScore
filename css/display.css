@@ -46,10 +46,12 @@ body {
     /*background: cyan;*/
     text-align: center;
     color: white;
+    font-weight: bold;
 }
 
 #match-period::before {
-    content: "Period ";
+    content: "Period: ";
+    font-weight: normal;
 }
 
 .bgimage {

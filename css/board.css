@@ -4,13 +4,14 @@ body {
 
 #match-timer {
     font-family: "Lucida Console", monospace;
-    font-size: 48pt;
+    font-size: 62pt;
 }
 
 #match-period {
     /*text-align: center;*/
-    font-family: "Impact", serif;
-    font-size: 32pt;
+    font-family: "Calibri", serif;
+    font-size: 48pt;
+    font-weight: bold;
 }
 
 div.half {

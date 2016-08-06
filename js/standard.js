@@ -66,7 +66,8 @@ function resetGame() {
                 } else {
                     newTime = 0.;
                 }
-                $('#match-period').html(period-1+' (break)');
+                // $('#match-period').html(period-1+' (break)');
+                $('#match-period').html(period+' next...');
             } else {
                 isPlay = true;
                 newTime = lenPeriod * 60. * 1000.;
@@ -116,86 +117,6 @@ function resetGame() {
     MatchClockTock.onTick();
 
 }
-
-//     MatchClock = new (function() {
-//         var $countdown,
-//             $form, // Form used to change the countdown time
-//             incrementTime = 70,
-//             currentTime = 60*15,
-//             updateTimer = function() {
-//                 $countdown.html(formatTime(currentTime));
-//                 if (currentTime == 0) {
-//                     MatchClock.Timer.stop();
-//                     timerComplete();
-//                     MatchClock.resetCountdown();
-//                     // console.log('Timer complete, resetting');
-//                     return;
-//                 }
-//                 currentTime -= (incrementTime / 10) * 1.02; // Fudge for interval issues
-//                 if (currentTime < 0) currentTime = 0;
-//             },
-//             timerComplete = function() {
-//                 buzzer.play();
-//                 // // console.log('Timer completed!');
-//                 // alert('MatchClock: Countdown timer complete!');
-//                 // return;
-//             },
-//             init = function() {
-//                 // console.log("Timer init underway");
-//                 $countdown = $('#match-timer');
-//                 MatchClock.Timer = $.timer(updateTimer, incrementTime, false);
-//                 $form = $('#match-timer-form');
-//                 $form.bind('submit', function() {
-//                     MatchClock.resetCountdown();
-//                     return false;
-//                 });
-//                 MatchClock.resetCountdown();
-//             };
-//         this.resetCountdown = function() {
-//             // var newTime = parseInt($form.find('input[type=text]').val()) * 100.;
-//             if (period >= noPeriods && isPlay) {
-//                 // buzzer.play();
-//                 MatchClock.Timer.stop();
-//                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
-//                 if (done) {
-//                     resetGame();
-//                 }
-//                 return;
-//             }
-//             if (isPlay) {
-//                 isPlay = false;
-//                 period += 1;
-//                 if (period <= noPeriods) {
-//                     newTime = lenBreak * 60. * 100.;
-//                 } else {
-//                     newTime = 0.;
-//                 }
-//                 $('#match-period').html(period-1+' (break)');
-//             } else {
-//                 isPlay = true;
-//                 newTime = lenPeriod * 60. * 100.;
-//                 $('#match-period').html(period);
-//             }
-//             if (newTime > 0) {
-//                 currentTime = newTime;
-//                 // Fudge - add a resolution element
-//                 // currentTime += incrementTime / 10.;
-//             }
-//             this.Timer.stop().once();
-//             if (rollingClock && period <= noPeriods && period != 1) {
-//                 this.Timer.toggle();
-//             } 
-//         }
-
-//         this.alterTime = function(secs) {
-//             if (secs > 0 || (-100 * secs < currentTime)) {
-//                 currentTime += secs * 100.;
-//                 $countdown.html(formatTime(currentTime));
-//             }
-//         };
-//         $(init);
-//     });
-
 
 function toggleClock(clock) {
     if (clock.isRunning) {
@@ -307,6 +228,20 @@ function alterAwayScore (inc) {
     if (-1 * scoreAway < (inc+1)) {
     scoreAway += inc;
     showTeamScore('#team-score-away', scoreAway);
+    }
+}
+
+function alterPeriod(inc) {
+    var conf = confirm("Are you sure? You don't need to alter the period manually unless there has been an error")
+    if (conf) {
+        if ((period+inc <= noPeriods) && (period+inc > 0)) {
+            period += inc;
+            if (isPlay) {
+                $('#match-period').text(period);
+            } else {
+                $('#match-period').html(period+' next...');
+            }
+        }
     }
 }
 
