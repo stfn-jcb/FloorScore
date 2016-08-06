@@ -87,6 +87,7 @@ div.team-logo {
     background: black;
     color: black;
     font-weight: bold;
+    background-size: 90% !important;
 }
 
 #team-img-home, #team-score-home, #team-name-home {
@@ -104,8 +105,8 @@ div.team-logo {
 
 #advertising {
     position: absolute;
-    left: 25%;
-    width: 50%;
+    left: 30%;
+    width: 40%;
     height: 400px;
     /*background: gold;*/
 }

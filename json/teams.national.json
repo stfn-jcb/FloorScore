@@ -3,15 +3,15 @@
         {
             "name":"Pakenham Squishees", 
             "img":"./img/team-img/pakenham.png",
-            "img-clr":"black",
-            "bg-clr":"rgb(255,222,0)",
-            "tx-clr":"rgb(6,103,58)"
+            "img-clr":"rgb(6,103,58)",
+            "bg-clr":"rgb(6,103,58)",
+            "tx-clr":"rgb(255,222,0)"
         },
     "canberra-men":
         {
             "name":"Canberra Chargers", 
             "img":"./img/team-img/ChargersClearNotext-02.png",
-            "img-clr":"black",
+            "img-clr":"rgb(255,205,5)",
             "bg-clr":"rgb(255,205,5)",
             "tx-clr":"rgb(0,43,94)"
         },
@@ -19,7 +19,7 @@
         {
             "name":"Canberra Chargers Gold", 
             "img":"./img/team-img/ChargersClearNotext-02.png",
-            "img-clr":"black",
+            "img-clr":"rgb(255,205,5)",
             "bg-clr":"rgb(255,205,5)",
             "tx-clr":"rgb(0,43,94)"
         },
@@ -27,7 +27,7 @@
         {
             "name":"Canberra Chargers Blue", 
             "img":"./img/team-img/ChargersClearNotext-02.png",
-            "img-clr":"black",
+            "img-clr":"rgb(0,43,94)",
             "bg-clr":"rgb(0,43,94)",
             "tx-clr":"rgb(255,205,5)"
         },
@@ -35,8 +35,56 @@
         {
             "name":"Canberra Chargettes", 
             "img":"./img/team-img/ChargettesClearNotext-01.png",
-            "img-clr":"black",
+            "img-clr":"rgb(255,205,5)",
             "bg-clr":"rgb(255,205,5)",
             "tx-clr":"rgb(0,43,94)"
+        },
+    "bondi-raptors":
+        {
+            "name":"Bondi Raptors", 
+            "img":"./img/team-img/bondi_logo.png",
+            "img-clr":"rgb(14,178,51)",
+            "bg-clr":"rgb(14,178,51)",
+            "tx-clr":"white"
+        },
+    "bondi-shots":
+        {
+            "name":"Bondi Shots", 
+            "img":"./img/team-img/bondi_logo.png",
+            "img-clr":"rgb(14,134,170)",
+            "bg-clr":"rgb(14,134,170)",
+            "tx-clr":"white"
+        },
+    "newcastle-cobras":
+        {
+            "name":"Newcastle Cobras", 
+            "img":"./img/team-img/floorballnewcastle.png",
+            "img-clr":"rgb(180,180,180)",
+            "bg-clr":"rgb(180,180,180)",
+            "tx-clr":"red"
+        },
+    "northern-beaches":
+        {
+            "name":"Northern Beaches", 
+            "img":"./img/team-img/NBlogo.png",
+            "img-clr":"red",
+            "bg-clr":"red",
+            "tx-clr":"black"
+        },
+    "peninsula-men":
+        {
+            "name":"Peninsula Thunder", 
+            "img":"./img/team-img/Peninsula.png",
+            "img-clr":"white",
+            "bg-clr":"white",
+            "tx-clr":"rgb(56,83,164)"
+        },
+    "peninsula-women":
+        {
+            "name":"Peninsula Thunderettes", 
+            "img":"./img/team-img/Peninsula.png",
+            "img-clr":"white",
+            "bg-clr":"white",
+            "tx-clr":"rgb(56,83,164)"
         }
 }

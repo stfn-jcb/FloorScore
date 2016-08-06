@@ -4,6 +4,8 @@ var period, isPlay, noPeriods, lenPeriod, lenBreak, rollingClock, gameStarted;
 var startTime, isRunning;
 var MatchClock;
 var buzzer = new Audio('./mp3/47434BUZZER.mp3');
+var warningThiry = new Audio('./mp3/thirty.mp3');
+var warningGiven;
 var teamdata;
 
 var scoreHome, scoreAway;
@@ -26,6 +28,7 @@ function resetGame() {
     rollingClock = true;
     gameStarted = false;
     done = false;
+    warningGiven = false;
 
     scoreHome = 0;
     scoreAway = 0;
@@ -46,15 +49,20 @@ function resetGame() {
             //     $('#match-timer').text(MatchClockTock.lap('{ss}.{ll}'));
             // }
             $('#match-timer').text(formatTime(MatchClockTock.lap()));
+            if ((!isPlay) && (MatchClockTock.lap() < 30*1000) && (MatchClockTock.lap() > 29*1000) && (!warningGiven)) {
+                warningThiry.play();
+                warningGiven = true;
+            }
         },
         onComplete: function () {
-            console.log('Inside onComplete');
+            // console.log('Inside onComplete');
             buzzer.play();
             if (period >= noPeriods && isPlay) {
-                MatchClockTock.stop();
+                // MatchClockTock.stop();
                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
                 if (done) {
                     resetGame();
+                    return;
                 }
                 return;
             }
@@ -94,12 +102,12 @@ function resetGame() {
     MatchClockTock.alterTime  = function (secs) {
         if (secs > 0 || (-1000 * secs < MatchClockTock.lap())) {
             now = MatchClockTock.lap();
-            console.log('Now is '+now)
-            console.log('Secs is'+1000*secs)
+            // console.log('Now is '+now)
+            // console.log('Secs is'+1000*secs)
             newTime = now + (secs * 1000);
-            console.log('newTime is'+newTime);
+            // console.log('newTime is'+newTime);
             MatchClockTock.startTime = newTime;
-            console.log('New startTime is '+MatchClockTock.startTime)
+            // console.log('New startTime is '+MatchClockTock.startTime)
             if (MatchClockTock.isRunning) {
                 MatchClockTock.reset();
                 MatchClockTock.start();
@@ -108,6 +116,7 @@ function resetGame() {
                 MatchClockTock.reset();
                 MatchClockTock.onTick();
             }
+            warningGiven = false;
         }
     }
 
