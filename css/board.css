@@ -1,3 +1,7 @@
+body {
+    font-size: 15pt;
+}
+
 #match-timer {
     font-family: "Lucida Console", monospace;
     font-size: 48pt;
@@ -36,4 +40,12 @@ div.half {
 
 div {
     float: left;
+}
+
+input[type='button'], button, select, select option {
+    font-size: 20pt;
+}
+
+#timer-attributes td input[type='button'] {
+    width: 100%;
 }

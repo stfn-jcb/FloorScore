@@ -17,7 +17,7 @@ rollingClock = true;
 function resetGame() {
     // Do stuff here
     period = 1;
-    isPlay = false;
+    isPlay = true;
     // Do things here to get a hold of the number of periods,
     // the period length and the length of the period break
     noPeriods = parseInt($('#match-timer-no-periods').val()); // mins
@@ -32,46 +32,26 @@ function resetGame() {
     $("#team-home").val("").change();
     $("#team-away").val('').change();
 
+    $('#match-period').text(period);
+
     // MatchClock object
-    MatchClock = new (function() {
-        var $countdown,
-            $form, // Form used to change the countdown time
-            incrementTime = 70,
-            currentTime = 60*15,
-            updateTimer = function() {
-                $countdown.html(formatTime(currentTime));
-                if (currentTime == 0) {
-                    MatchClock.Timer.stop();
-                    timerComplete();
-                    MatchClock.resetCountdown();
-                    // console.log('Timer complete, resetting');
-                    return;
-                }
-                currentTime -= (incrementTime / 10) * 1.02; // Fudge for interval issues
-                if (currentTime < 0) currentTime = 0;
-            },
-            timerComplete = function() {
-                buzzer.play();
-                // // console.log('Timer completed!');
-                // alert('MatchClock: Countdown timer complete!');
-                // return;
-            },
-            init = function() {
-                // console.log("Timer init underway");
-                $countdown = $('#match-timer');
-                MatchClock.Timer = $.timer(updateTimer, incrementTime, false);
-                $form = $('#match-timer-form');
-                $form.bind('submit', function() {
-                    MatchClock.resetCountdown();
-                    return false;
-                });
-                MatchClock.resetCountdown();
-            };
-        this.resetCountdown = function() {
-            var newTime = parseInt($form.find('input[type=text]').val()) * 100.;
+    MatchClockTock = new Tock ({
+        countdown: true,
+        startTime: 15*60*1000,
+        interval: 70,
+        onTick: function () {
+            // if (MatchClockTock.lap() > 10000) {
+            //     $('#match-timer').text(MatchClockTock.lap('{mm}:{ss}'));
+            // } else {
+            //     $('#match-timer').text(MatchClockTock.lap('{ss}.{ll}'));
+            // }
+            $('#match-timer').text(formatTime(MatchClockTock.lap()));
+        },
+        onComplete: function () {
+            console.log('Inside onComplete');
+            buzzer.play();
             if (period >= noPeriods && isPlay) {
-                // buzzer.play();
-                MatchClock.Timer.stop();
+                MatchClockTock.stop();
                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
                 if (done) {
                     resetGame();
@@ -82,35 +62,147 @@ function resetGame() {
                 isPlay = false;
                 period += 1;
                 if (period <= noPeriods) {
-                    newTime = lenBreak * 60. * 100.;
+                    newTime = lenBreak * 60. * 1000.;
                 } else {
                     newTime = 0.;
                 }
                 $('#match-period').html(period-1+' (break)');
             } else {
                 isPlay = true;
-                newTime = lenPeriod * 60. * 100.;
+                newTime = lenPeriod * 60. * 1000.;
                 $('#match-period').html(period);
             }
             if (newTime > 0) {
-                currentTime = newTime;
+                MatchClockTock.startTime = newTime;
+                MatchClockTock.reset();
+                MatchClockTock.onTick();
                 // Fudge - add a resolution element
                 // currentTime += incrementTime / 10.;
             }
-            this.Timer.stop().once();
+            // this.Timer.stop().once();
             if (rollingClock && period <= noPeriods && period != 1) {
-                this.Timer.toggle();
-            } 
-        }
-
-        this.alterTime = function(secs) {
-            if (secs > 0 || (-100 * secs < currentTime)) {
-                currentTime += secs * 100.;
-                $countdown.html(formatTime(currentTime));
+                MatchClockTock.start();
             }
-        };
-        $(init);
+        },
+        onReset: function () {
+            // console.log('Inside onReset');
+        }
     });
+
+    // MatchClockTock.onTick();
+    MatchClockTock.alterTime  = function (secs) {
+        if (secs > 0 || (-1000 * secs < MatchClockTock.lap())) {
+            now = MatchClockTock.lap();
+            console.log('Now is '+now)
+            console.log('Secs is'+1000*secs)
+            newTime = now + (secs * 1000);
+            console.log('newTime is'+newTime);
+            MatchClockTock.startTime = newTime;
+            console.log('New startTime is '+MatchClockTock.startTime)
+            if (MatchClockTock.isRunning) {
+                MatchClockTock.reset();
+                MatchClockTock.start();
+            } else {
+                MatchClockTock.startTime = now + (secs * 1000);
+                MatchClockTock.reset();
+                MatchClockTock.onTick();
+            }
+        }
+    }
+
+    // Game start functions
+    MatchClockTock.startTime = lenPeriod * 60. * 1000.;
+    MatchClockTock.reset();
+    MatchClockTock.onTick();
+
+}
+
+//     MatchClock = new (function() {
+//         var $countdown,
+//             $form, // Form used to change the countdown time
+//             incrementTime = 70,
+//             currentTime = 60*15,
+//             updateTimer = function() {
+//                 $countdown.html(formatTime(currentTime));
+//                 if (currentTime == 0) {
+//                     MatchClock.Timer.stop();
+//                     timerComplete();
+//                     MatchClock.resetCountdown();
+//                     // console.log('Timer complete, resetting');
+//                     return;
+//                 }
+//                 currentTime -= (incrementTime / 10) * 1.02; // Fudge for interval issues
+//                 if (currentTime < 0) currentTime = 0;
+//             },
+//             timerComplete = function() {
+//                 buzzer.play();
+//                 // // console.log('Timer completed!');
+//                 // alert('MatchClock: Countdown timer complete!');
+//                 // return;
+//             },
+//             init = function() {
+//                 // console.log("Timer init underway");
+//                 $countdown = $('#match-timer');
+//                 MatchClock.Timer = $.timer(updateTimer, incrementTime, false);
+//                 $form = $('#match-timer-form');
+//                 $form.bind('submit', function() {
+//                     MatchClock.resetCountdown();
+//                     return false;
+//                 });
+//                 MatchClock.resetCountdown();
+//             };
+//         this.resetCountdown = function() {
+//             // var newTime = parseInt($form.find('input[type=text]').val()) * 100.;
+//             if (period >= noPeriods && isPlay) {
+//                 // buzzer.play();
+//                 MatchClock.Timer.stop();
+//                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
+//                 if (done) {
+//                     resetGame();
+//                 }
+//                 return;
+//             }
+//             if (isPlay) {
+//                 isPlay = false;
+//                 period += 1;
+//                 if (period <= noPeriods) {
+//                     newTime = lenBreak * 60. * 100.;
+//                 } else {
+//                     newTime = 0.;
+//                 }
+//                 $('#match-period').html(period-1+' (break)');
+//             } else {
+//                 isPlay = true;
+//                 newTime = lenPeriod * 60. * 100.;
+//                 $('#match-period').html(period);
+//             }
+//             if (newTime > 0) {
+//                 currentTime = newTime;
+//                 // Fudge - add a resolution element
+//                 // currentTime += incrementTime / 10.;
+//             }
+//             this.Timer.stop().once();
+//             if (rollingClock && period <= noPeriods && period != 1) {
+//                 this.Timer.toggle();
+//             } 
+//         }
+
+//         this.alterTime = function(secs) {
+//             if (secs > 0 || (-100 * secs < currentTime)) {
+//                 currentTime += secs * 100.;
+//                 $countdown.html(formatTime(currentTime));
+//             }
+//         };
+//         $(init);
+//     });
+
+
+function toggleClock(clock) {
+    if (clock.isRunning) {
+        clock.stop();
+    } else {
+        clock.start();
+    }
 }
 
 // Common functions
@@ -120,10 +212,10 @@ function pad(number, length) {
     return str;
 }
 function formatTime(time) {
-    var min = parseInt(time / 6000),
-        sec = parseInt(time / 100) - (min * 60),
-        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
-    return (min > 0 ? pad(min, 2) + ":" : "00:") + pad(sec, 2) + (min < 1 ? "." + hundredths : "");
+    var min = parseInt(time / 60000),
+        sec = parseInt(time / 1000) - (min * 60),
+        mills = Math.floor((time - (sec * 1000) - (min * 60000)) / 100);
+    return (min > 0 ? pad(min, 2) + ":" : "00:") + pad(sec, 2) + (min < 1 ? "." + mills : "");
 }
 function startGame() {
     gameStarted = true;
@@ -272,7 +364,11 @@ $( document ).ready(function () {
     $('#match-timer-len-period').change(function () {
         lenPeriod = parseInt($( this ).val());
         if (!gameStarted) {
+            currHome = $('#team-home').val();
+            currAway = $('#team-away').val();
             resetGame();
+            $('#team-home').val(currHome).change();
+            $('#team-away').val(currAway).change();
         }
     });
     $('#match-timer-len-break').change(function () {
@@ -299,8 +395,3 @@ $( document ).ready(function () {
     // Should now be ready - reset game to start!
     resetGame();
 });
-
-window.onload = function () {
-    
-};
-

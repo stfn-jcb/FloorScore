@@ -2,6 +2,7 @@
 <head>
 <title>Web Score System - Rolling Clock</title>
 <script src='./js/jquery-3.1.0.min.js'></script>
+<script src='./js/tock.min.js'></script>
 <script src='./js/standard.js'></script>
 <script src='./js/jquery.timer.js'></script>
 
@@ -16,9 +17,32 @@
     <span id="match-timer">00:00:00</span><br />
     Period: <span id="match-period">Waiting for start</span><br />
     <form id="match-timer-form">
+    <table>
+    <tr><td colspan=3>
+        <input type='button' value='Resume/Pause Time' onclick='startGame();toggleClock(MatchClockTock);' /></td>
+        <!-- <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br /> -->
+        <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
+    <tr><td><input type='button' value='+1 min' onclick='MatchClockTock.alterTime(60.)' /></td>
+        <td><input type='button' value='+10 sec' onclick='MatchClockTock.alterTime(10.)' /></td>
+        <td><input type='button' value='+1 sec' onclick='MatchClockTock.alterTime(1.)' /></td></tr>
+    <tr><td><input type='button' value='-1 min' onclick='MatchClockTock.alterTime(-60.)' /></td>
+        <td><input type='button' value='-10 sec' onclick='MatchClockTock.alterTime(-10.)' /></td>
+        <td><input type='button' value='-1 sec' onclick='MatchClockTock.alterTime(-1.)' /></td></tr>
+    </table>
+        No periods: <select id='match-timer-no-periods'></select><br />
+        Len. period: <select id='match-timer-len-period'></select><br />
+        Len. break: <select id='match-timer-len-break'></select><br />
+        Rolling clock? <input type='checkbox' id='match-timer-rolling' checked /><br />
+    </form>
+</div>
+
+<!-- <div class='half' id='timer-attributes' style='background:pink;'>
+<h2>Display clock</h3>
+    <span id="match-timer">00:00:00</span><br />
+    Period: <span id="match-period">Waiting for start</span><br />
+    <form id="match-timer-form">
         <input type='button' value='Play/Pause' onclick='startGame();MatchClock.Timer.toggle();' />
         <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br />
-        <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
         <input type='button' value='+1 min' onclick='MatchClock.alterTime(60.)' />
         <input type='button' value='+10 sec' onclick='MatchClock.alterTime(10.)' />
         <input type='button' value='+1 sec' onclick='MatchClock.alterTime(1.)' /><br />
@@ -30,7 +54,7 @@
         Len. break: <select id='match-timer-len-break'></select><br />
         Rolling clock? <input type='checkbox' id='match-timer-rolling' checked /><br />
     </form>
-</div>
+</div> -->
 
 <div class='half' id='team-attributes' style='background: cyan;'>
 <div class='home'>
@@ -39,11 +63,13 @@
 Team: <select id='team-home'>
     <option val='' default></option>
 </select><br />
+<table><tr><td>
 <div class='team-img' id='team-img-home'></div>
 <div class='team-score' id='team-score-home'></div>
-<input type='button' value='+' onclick='alterHomeScore(1)' />
+<input type='button' value='+' onclick='alterHomeScore(1)' /><br />
 <input type='button' value='-' onclick='alterHomeScore(-1)' />
-</div>
+</div></td></tr>
+<tr><td>
 <div class='away'>
 <h3>Away team</h3>
 Team: <select id='team-away'>
@@ -51,13 +77,15 @@ Team: <select id='team-away'>
 </select><br />
 <div class='team-img' id='team-img-away'></div>
 <div class='team-score' id='team-score-away'></div>
-<input type='button' value='+' onclick='alterAwayScore(1)' />
+<input type='button' value='+' onclick='alterAwayScore(1)' /><br />
 <input type='button' value='-' onclick='alterAwayScore(-1)' />
 </div>
+</td></tr></table>
 </div>
 
-<p>Test page</p>
-<button id='window-open'>Open window!</button>
+<div style='clear:both;'>
+<button id='window-open'>Open external display</button>
+</div>
 
 </body>
 
