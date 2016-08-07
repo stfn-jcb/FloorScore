@@ -61,6 +61,7 @@ function resetGame() {
                 // MatchClockTock.stop();
                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
                 if (done) {
+                    MatchClockTock.reset();
                     resetGame();
                     return;
                 }
