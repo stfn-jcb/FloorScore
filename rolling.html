@@ -14,12 +14,12 @@
 <!-- Let's do the timer things -->
 <div class='half' id='timer-attributes' style='background:pink;'>
 <h2>Display clock</h3>
-    <span id="match-timer">00:00:00</span><br />
+    <span id="match-timer" style='border-right: 10px solid red;'>00:00:00</span><br />
     Period: <span id="match-period">Waiting for start</span><br />
     <form id="match-timer-form">
     <table>
     <tr><td colspan=3>
-        <input type='button' value='Resume/Pause Time' onclick='startGame();toggleClock(MatchClockTock);' /></td>
+        <input type='button' value='Resume/Pause Time' onclick='startGame();toggleClock(MatchClockTock);' id='clock-toggle'/></td>
         <!-- <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br /> -->
         <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
     <tr><td><input type='button' value='+1 min' onclick='MatchClockTock.alterTime(60.)' /></td>
@@ -68,8 +68,8 @@ Team: <select id='team-home'>
 <table><tr><td>
 <div class='team-img' id='team-img-home'></div>
 <div class='team-score' id='team-score-home'></div>
-<input type='button' value='+' onclick='alterHomeScore(1)' /><br />
-<input type='button' value='-' onclick='alterHomeScore(-1)' />
+<input type='button' value='+ goal' onclick='alterHomeScore(1)' /><br />
+<input type='button' value='- goal' onclick='alterHomeScore(-1)' />
 </div></td></tr>
 <tr><td>
 <div class='away'>
@@ -79,8 +79,8 @@ Team: <select id='team-away'>
 </select><br />
 <div class='team-img' id='team-img-away'></div>
 <div class='team-score' id='team-score-away'></div>
-<input type='button' value='+' onclick='alterAwayScore(1)' /><br />
-<input type='button' value='-' onclick='alterAwayScore(-1)' />
+<input type='button' value='+ goal' onclick='alterAwayScore(1)' /><br />
+<input type='button' value='- goal' onclick='alterAwayScore(-1)' />
 </div>
 </td></tr></table>
 </div>

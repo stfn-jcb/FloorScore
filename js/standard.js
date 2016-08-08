@@ -30,6 +30,8 @@ function resetGame() {
     done = false;
     warningGiven = false;
 
+    clockRed('#match-timer');
+
     scoreHome = 0;
     scoreAway = 0;
     $("#team-home").val("").change();
@@ -59,6 +61,7 @@ function resetGame() {
             buzzer.play();
             if (period >= noPeriods && isPlay) {
                 // MatchClockTock.stop();
+                clockRed('#match-timer');
                 var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
                 if (done) {
                     MatchClockTock.reset();
@@ -131,9 +134,23 @@ function resetGame() {
 function toggleClock(clock) {
     if (clock.isRunning) {
         clock.stop();
+        clockRed('#match-timer');
     } else {
         clock.start();
+        clockGreen('#match-timer');
     }
+}
+
+function clockRed(id) {
+    var $select = $(id);
+    $select.attr('style', '');
+    $select.attr('style', 'border-right: 10px solid red;');
+}
+
+function clockGreen(id) {
+    var $select = $(id);
+    $select.attr('style', '');
+    $select.attr('style', 'border-right: 10px solid green;');
 }
 
 // Common functions
@@ -258,6 +275,9 @@ function alterPeriod(inc) {
 
 // On-page-load events
 $( document ).ready(function () {
+
+    clockToggleH = parseInt($('#clock-toggle').css('height'));
+    $('#clock-toggle').css('height', 2*clockToggleH + 'px');
 
     $.ajaxSetup({beforeSend: function(xhr){
       if (xhr.overrideMimeType)

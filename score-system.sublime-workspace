@@ -4,6 +4,106 @@
 		"selected_items":
 		[
 			[
+				"match",
+				"match-timer"
+			],
+			[
+				"clock",
+				"clockRed"
+			],
+			[
+				"clok",
+				"clockToggleH"
+			],
+			[
+				"warn",
+				"warningThiry"
+			],
+			[
+				"wa",
+				"warningGiven"
+			],
+			[
+				"match-",
+				"match-period"
+			],
+			[
+				"tourney",
+				"tourneyLogoH"
+			],
+			[
+				"adver",
+				"advertY"
+			],
+			[
+				"len",
+				"lenPeriod"
+			],
+			[
+				"MatchCloc",
+				"MatchClockTock"
+			],
+			[
+				"Mathc",
+				"MatchClockTock"
+			],
+			[
+				"MatchC",
+				"MatchClockTock"
+			],
+			[
+				"Match",
+				"MatchClockTock"
+			],
+			[
+				"Matc",
+				"MatchClockTock"
+			],
+			[
+				"cur",
+				"currHomeName"
+			],
+			[
+				"home",
+				"homeNameH"
+			],
+			[
+				"tourn",
+				"tourneyLogoH"
+			],
+			[
+				"homeLogo",
+				"homeLogoTxt"
+			],
+			[
+				"tour",
+				"tourneyLogoH"
+			],
+			[
+				"obser",
+				"observerTeams"
+			],
+			[
+				"curr",
+				"currHomeStyle"
+			],
+			[
+				"Mutat",
+				"MutationObserver"
+			],
+			[
+				"score",
+				"scoreHome"
+			],
+			[
+				"alter",
+				"alterBGTeamScore"
+			],
+			[
+				"populate",
+				"populateTeamSelects"
+			],
+			[
 				"popu",
 				"populateSelectTeamArray"
 			],
@@ -46,10 +146,6 @@
 			[
 				"match-timer-len",
 				"match-timer-len-break"
-			],
-			[
-				"match",
-				"match-timer-no-periods"
 			],
 			[
 				"br",
@@ -324,10 +420,6 @@
 				"ADS_BIBCODE_REGEX"
 			],
 			[
-				"populate",
-				"populate_info_ads"
-			],
-			[
 				"author",
 				"author_match"
 			],
@@ -422,98 +514,6 @@
 			[
 				"Inge",
 				"InheritanceManager"
-			],
-			[
-				"REPO",
-				"REPO_TAG_CONTENT"
-			],
-			[
-				"RE",
-				"REPO_TAG_CONTENT"
-			],
-			[
-				"repo_",
-				"repo_url_match"
-			],
-			[
-				"rep",
-				"repo_url_regex"
-			],
-			[
-				"Comp",
-				"ComputingProject"
-			],
-			[
-				"Com",
-				"ComputingProject"
-			],
-			[
-				"SitePa",
-				"SiteParameters"
-			],
-			[
-				"Comput",
-				"ComputingProjectAdmin"
-			],
-			[
-				"resear",
-				"research_interests"
-			],
-			[
-				"Resear",
-				"ResearchInterest"
-			],
-			[
-				"Research",
-				"ResearchInterestAdmin"
-			],
-			[
-				"futu",
-				"future_trips"
-			],
-			[
-				"site",
-				"siteparameters_set"
-			],
-			[
-				"is_",
-				"is_future"
-			],
-			[
-				"ab",
-				"ab_models"
-			],
-			[
-				"SitePara",
-				"SiteParametersReverseForm"
-			],
-			[
-				"Site",
-				"SiteParametersReverseForm"
-			],
-			[
-				"In",
-				"Institute"
-			],
-			[
-				"For",
-				"ForeignKey"
-			],
-			[
-				"full_",
-				"full_name_casual"
-			],
-			[
-				"COLLA",
-				"COLLABORATOR_STATUS_CHOICES"
-			],
-			[
-				"installed",
-				"installed_apps"
-			],
-			[
-				"conta",
-				"contact_type"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "rolling.html",
 			"settings":
 			{
-				"buffer_size": 2075,
+				"buffer_size": 4330,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,23 +531,7 @@
 			"file": "css/board.css",
 			"settings":
 			{
-				"buffer_size": 330,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "json/teams.national.json",
-			"settings":
-			{
-				"buffer_size": 217,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "rolling-screen.html",
-			"settings":
-			{
-				"buffer_size": 1469,
+				"buffer_size": 846,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +539,56 @@
 			"file": "js/standard.js",
 			"settings":
 			{
-				"buffer_size": 8013,
+				"buffer_size": 11337,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rolling-screen.html",
+			"settings":
+			{
+				"buffer_size": 3691,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/display.css",
+			"settings":
+			{
+				"buffer_size": 2404,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/display-setup.js",
+			"settings":
+			{
+				"buffer_size": 3954,
+				"line_ending": "Unix",
+				"name": "// Formatting setup for screen"
+			}
+		},
+		{
+			"file": "json/teams.national.json",
+			"settings":
+			{
+				"buffer_size": 2726,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "json/teams.colours.json",
+			"settings":
+			{
+				"buffer_size": 464,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/marc/Documents/ghost/cosmics.py/cosmics.py_0.4/cosmics.py",
+			"settings":
+			{
+				"buffer_size": 26499,
 				"line_ending": "Unix"
 			}
 		},
@@ -627,6 +660,7 @@
 	"expanded_folders":
 	[
 		"/Users/marc/Sites/score-system",
+		"/Users/marc/Sites/score-system/css",
 		"/Users/marc/Sites/score-system/jquery-timer-demo",
 		"/Users/marc/Sites/score-system/jquery-timer-demo/res",
 		"/Users/marc/Sites/score-system/js",
@@ -635,12 +669,15 @@
 	],
 	"file_history":
 	[
+		"/Users/marc/Sites/Tock.js-master/examples/examples-jquery-zepto.html",
+		"/Users/marc/Sites/score-system/css/board.css",
+		"/Users/marc/Documents/ghost/cosmics.py/cosmics.py_0.4/demo_1_simple/demo.py",
+		"/Users/marc/Sites/score-system/js/standard.js",
+		"/Users/marc/Sites/score-system/rolling.html",
 		"/Users/marc/Sites/score-system/json/teams.national.json",
 		"/Users/marc/Sites/score-system/js/loadteams.js",
 		"/Users/marc/Sites/score-system/js/teams.national.js",
 		"/Users/marc/Sites/score-system/rolling-screen.html",
-		"/Users/marc/Sites/score-system/js/standard.js",
-		"/Users/marc/Sites/score-system/rolling.html",
 		"/Users/marc/Documents/floorball/web/temp/index.html",
 		"/Users/marc/Documents/ghost/testdata/spect.list",
 		"/Users/marc/Documents/ghost/testdata/bias.list",
@@ -759,10 +796,7 @@
 		"/Users/marc/Sites/sm_asvo/trunk/sm_siap/apps.py",
 		"/Users/marc/Sites/sm_asvo/trunk/sm_conesearch/__init__.py",
 		"/Users/marc/Sites/sm_asvo/trunk/sm_conesearch/views.py",
-		"/Users/marc/Sites/sm_asvo/trunk/sm_asvo/static/sm_asvo/js/map/map.ie.js",
-		"/Users/marc/Sites/sm_asvo/trunk/sm_asvo/static/sm_asvo/js/map/hammer.js",
-		"/Users/marc/Sites/sm_asvo/trunk/sm_asvo/static/sm_asvo/master.js",
-		"/Users/marc/Sites/sm_asvo/trunk/sm_asvo/static/sm_asvo/js/map/map.js"
+		"/Users/marc/Sites/sm_asvo/trunk/sm_asvo/static/sm_asvo/js/map/map.ie.js"
 	],
 	"find":
 	{
@@ -777,9 +811,16 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"buzzer.play();",
+			"2x2",
+			"console",
+			"play",
+			"audio",
+			"home",
+			"period",
 			"populateSelects",
 			"$countdown",
 			"complete",
@@ -900,14 +941,7 @@
 			"server_name",
 			"?>",
 			"<?php",
-			"{% endphp %}",
-			"{% startphp %}",
-			"	\n",
-			"mappings_version_latest",
-			"mappings_version",
-			"background: white",
-			"background",
-			"background-white"
+			"{% endphp %}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -915,6 +949,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"// console",
+			"away",
 			"standards_",
 			"sched.utc_to_J2000",
 			"JSONdata",
@@ -978,7 +1014,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -987,15 +1023,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2075,
+						"buffer_size": 4330,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								724,
-								724
+								472,
+								472
 							]
 						],
 						"settings":
@@ -1011,7 +1047,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1020,15 +1056,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 330,
+						"buffer_size": 846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14,
-								14
+								238,
+								238
 							]
 						],
 						"settings":
@@ -1041,93 +1077,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 48.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "json/teams.national.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								105,
-								105
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "rolling-screen.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								307,
-								307
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "js/standard.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8013,
+						"buffer_size": 11337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4851,
-								4851
+								4702,
+								4702
 							]
 						],
 						"settings":
@@ -1140,14 +1110,202 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2008.0,
+						"translation.y": 1876.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
+					"buffer": 3,
+					"file": "rolling-screen.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3191,
+								3191
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 467.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "css/display.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								312,
+								312
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
 					"buffer": 5,
+					"file": "js/display-setup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3954,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"auto_name": "// Formatting setup for screen",
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 15.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "json/teams.national.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1700,
+								1700
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 372.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "json/teams.colours.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/marc/Documents/ghost/cosmics.py/cosmics.py_0.4/cosmics.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16012,
+								16015
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5933.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "jquery-timer-demo/jquery.timer.js",
 					"semi_transient": false,
 					"settings":
@@ -1175,11 +1333,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "jquery-timer-demo/res/demo.js",
 					"semi_transient": false,
 					"settings":
@@ -1205,14 +1363,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "jquery-timer-demo/demo.html",
 					"semi_transient": false,
 					"settings":
@@ -1241,7 +1399,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
