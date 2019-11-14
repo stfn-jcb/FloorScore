@@ -15,8 +15,10 @@ function formatScreen () {
     var homeLogoW = parseInt($('#team-img-home').css('width'));
     $('#team-name-home').css('height', 0.4*homeLogoW+'px');
     var homeNameH = parseInt($('#team-name-home').css('height'));
-    $('#team-name-home').css('font-size', 0.42*homeNameH+'px')
-    $('#team-name-home').css('line-height', 0.44*homeNameH+'px')
+//    $('#team-name-home').css('font-size', 0.38*homeNameH+'px');
+//    $('#team-name-home').css('line-height', 0.40*homeNameH+'px');
+    $('#team-name-home').css('font-size', '38px');
+    $('#team-name-home').css('line-height', '40px');
     $('#team-img-home').css('height', homeLogoW+'px');
     $('#team-img-home').css('top', tourneyLogoH+homeNameH+homeLogoW+'px');
     $('#team-score-home').css('height', homeLogoW+'px');
@@ -31,8 +33,10 @@ function formatScreen () {
     var awayLogoW = parseInt($('#team-img-away').css('width'));
     $('#team-name-away').css('height', 0.4*awayLogoW+'px');
     var awayNameH = parseInt($('#team-name-away').css('height'));
-    $('#team-name-away').css('font-size', 0.42*awayNameH+'px')
-    $('#team-name-away').css('line-height', 0.44*awayNameH+'px')
+//    $('#team-name-away').css('font-size', 0.38*awayNameH+'px');
+//    $('#team-name-away').css('line-height', 0.40*awayNameH+'px');
+    $('#team-name-away').css('font-size', '38px');
+    $('#team-name-away').css('line-height', '40px');
     $('#team-img-away').css('height', awayLogoW+'px');
     $('#team-img-away').css('top', tourneyLogoH+awayNameH+awayLogoW+'px');
     $('#team-score-away').css('height', awayLogoW+'px');

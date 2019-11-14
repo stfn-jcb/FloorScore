@@ -1,60 +1,53 @@
 // Global scope variables for period type, numbers etc.
-var period, isPlay, noPeriods, lenPeriod, lenBreak, rollingClock, gameStarted;
+var period, isPlay, noPeriods, lenPeriod, lenBreak, lenWarmup, gameStarted;
 // Added variables for improved time-keeping
-var start_time, isRunning;
-var MatchClockTock;
-//$( document ).ready(function () {
-//
-//})
-//var buzzer = new Audio('./mp3/47434BUZZER.mp3');
-//var warningThiry = new Audio('./mp3/thirty.mp3');
+var startTime, isRunning;
+var MatchClock;
+var buzzer = new Audio('./mp3/47434BUZZER.mp3');
+var warningThiry = new Audio('./mp3/thirty.mp3');
 var warningGiven;
-var teamdata;
+// var teamdata;
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
-var scoreHome, scoreAway;
+// var scoreHome, scoreAway;
 
 // Set global default values
-noPeriods = 3;
-lenPeriod = 15;
-lenBreak = 3;
-rollingClock = true;
+noPeriods = 1;
+lenWarmup = 3;
+lenPeriod = 12;
+lenBreak = 1;
+// rollingClock = true;
 
-function resetGame() {
+function resetGame( trigger_restart ) {
+
+    trigger_restart = trigger_restart || false ;
+
     // Do stuff here
     period = 1;
-    isPlay = true;
+    isPlay = false;
     // Do things here to get a hold of the number of periods,
     // the period length and the length of the period break
     noPeriods = parseInt($('#match-timer-no-periods').val()); // mins
     lenPeriod = parseInt($('#match-timer-len-period').val()); // mins
     lenBreak = parseInt($('#match-timer-len-break').val());; // mins
-    rollingClock = $('#match-timer-rolling').prop('checked');
+    lenWarmup = parseInt($('#match-timer-len-warmup').val());; // mins
+    // rollingClock = true;
     gameStarted = false;
     done = false;
     warningGiven = false;
 
     clockRed('#match-timer');
 
-    scoreHome = 0;
-    scoreAway = 0;
-    $("#team-home").val("").change();
-    $("#team-away").val('').change();
+    // scoreHome = 0;
+    // scoreAway = 0;
+    // $("#team-home").val("").change();
+    // $("#team-away").val('').change();
 
-    $('#match-period').text(period);
+    $('#match-period').text('Warm up');
 
     // MatchClock object
     MatchClockTock = new Tock ({
         countdown: true,
-        start_time: lenPeriod*60*1000,
+        startTime: lenWarmup*60*1000,
         interval: 70,
         callback: function () {
             // if (MatchClockTock.lap() > 10000) {
@@ -64,7 +57,7 @@ function resetGame() {
             // }
             $('#match-timer').text(formatTime(this.lap()));
             if ((!isPlay) && (this.lap() < 30*1000) && (this.lap() > 29*1000) && (!warningGiven)) {
-                lowLag.play('warningThirty');
+                warningThiry.play();
                 warningGiven = true;
             }
             if (this.go) {
@@ -74,23 +67,21 @@ function resetGame() {
             }
         },
 //        onStop: function () {
-//            // console.log('Inside onStop');
+//            console.log('Inside onStop');
 //        },
 //        onStart: function () {
-//            // console.log('Inside onStart');
+//            console.log('Inside onStart');
 //        },
         complete: function () {
-            // console.log('Inside onComplete');
-            lowLag.play('buzzer');
-//            setTimeout(function () {console.log('Game done'); }, 1000);
+            console.log('Inside onComplete');
+            buzzer.play();
             if (period >= noPeriods && isPlay) {
-                this.stop();
-                clockRed('#match-timer');
-//                var done = confirm('Looks like this game is done.\nClick OK to reset, ready for the next game\nClick cancel to return to the clock for this game')
-//                if (done) {
-//                    this.reset();
-//                    resetGame();
-//                }
+                isPlay = false;
+//                this.stop();
+                console.log('Reset sequence');
+                this.reset();
+                resetGame( function () {matchClockTock.start(); } );
+//                this.start();
                 return;
             } 
             if (isPlay) {
@@ -99,40 +90,45 @@ function resetGame() {
                 if (period <= noPeriods) {
                     newTime = lenBreak * 60. * 1000.;
                     warningGiven = false;
+//                    this.start()
+                    console.log('Break reset');
                 } else {
                     newTime = 0.;
                 }
                 // $('#match-period').html(period-1+' (break)');
                 $('#match-period').html(period+' next...');
             } else {
+                console.log('Period reset');
                 isPlay = true;
                 newTime = lenPeriod * 60. * 1000.;
                 $('#match-period').html(period);
+//                this.start();
             }
             if (newTime > 0) {
 //                MatchClockTock.start_time = newTime;
 //                MatchClockTock.reset();
+                console.log('newTime reset');
                 this.start(newTime);
-                if (this.go) {
-                     this.pause()
-                     this.pause_time = newTime;
-                }
+//                if (this.go) {
+//                     this.pause()
+//                     this.pause_time = newTime;
+//                }
                 this.callback();
                 // Fudge - add a resolution element
                 // currentTime += incrementTime / 10.;
             }
             // this.Timer.stop().once();
-            if (rollingClock && period <= noPeriods && period != 1 && !this.go) {
-//                console.log('Autostart triggered')
-                this.pause();
+            if (period <= noPeriods && period != 1 && gameStarted) {
+                console.log('start reset');
+                this.start();
             }
-        }
+        },
 //        onReset: function () {
-//            // console.log('Inside onReset');
+//            console.log('Inside onReset');
 //        }
     });
 
-    // MatchClockTock.callback();
+    // MatchClockTock.onTick();
     MatchClockTock.alterTime  = function (secs) {
         if (secs > 0 || (-1000 * secs < MatchClockTock.lap())) {
             // console.log('Altering time...')
@@ -165,7 +161,7 @@ function resetGame() {
     }
 
     // Game start functions
-    MatchClockTock.start_time = lenPeriod * 60. * 1000.;
+    MatchClockTock.start_time = lenWarmup * 60. * 1000.;
 //    MatchClockTock.reset();
     MatchClockTock.start(MatchClockTock.start_time + 10); // Added millisecond avoids floating-point errors;
     // otherwise, e.g., 16:00 will occasionally show up as 15:59(.999) at clock init
@@ -173,6 +169,10 @@ function resetGame() {
 //    MatchClockTock.time = 0;
     MatchClockTock.callback();
     toggleClock(MatchClockTock);
+
+    if ( trigger_restart ) {
+        MatchClockTock.pause();
+    }
 
 }
 
@@ -258,6 +258,7 @@ function populateSelects () {
     populateSelect('#match-timer-no-periods', 1, 10);
     populateSelect('#match-timer-len-period', 1, 30);
     populateSelect('#match-timer-len-break', 1, 15);
+    populateSelect('#match-timer-len-warmup', 1, 15);
 }
 
 function populateTeamSelects (data) {
@@ -317,10 +318,6 @@ function alterAwayScore (inc) {
 }
 
 function alterPeriod(inc) {
-    var wasGoing = MatchClockTock.go
-   if (wasGoing) {
-     MatchClockTock.pause();
-   }
     var conf = confirm("Are you sure? You don't need to alter the period manually unless there has been an error")
     if (conf) {
         if ((period+inc <= noPeriods) && (period+inc > 0)) {
@@ -332,21 +329,11 @@ function alterPeriod(inc) {
             }
         }
     }
-    if (wasGoing) {
-        MatchClockTock.pause();
-    }
 }
 
 
 // On-page-load events
 $( document ).ready(function () {
-
-    if ( $( 'div#lowLag ').length == 0 ) {
-        console.log('Initializing lowLag...');
-        lowLag.init({sm2url: './js/sm2/swf/', urlPrefix: './mp3/'});
-        lowLag.load('47434BUZZER.mp3', 'buzzer');
-        lowLag.load('thirty.mp3', 'warningThirty');
-    }
 
     clockToggleH = parseInt($('#clock-toggle').css('height'));
     $('#clock-toggle').css('height', 2*clockToggleH + 'px');
@@ -359,18 +346,18 @@ $( document ).ready(function () {
     }
     });
 
-    teamdata = {};
-    [
-    "./json/teams.canberra.json",
-    "./json/teams.national.json",
-    "./json/teams.colours.json"
-    ].forEach(function (i) {
-        ($.getJSON(i, function (json) { 
-            // // console.log('Have team JSON!');
-            $.extend(teamdata, json);
-            populateTeamSelects(json);
-        }));
-    });
+    // teamdata = {};
+    // [
+    // "./json/teams.national.json",
+    // "./json/teams.colours.json"
+    // ].forEach(function (i) {
+    //     ($.getJSON(i, function (json) { 
+    //         // // console.log('Have team JSON!');
+    //         $.extend(teamdata, json);
+    //         populateTeamSelects(json);
+    //     }));
+    // });
+
     // Initialize system
     populateSelects();
 
@@ -378,11 +365,12 @@ $( document ).ready(function () {
     $('#match-timer-no-periods').val(noPeriods)
     $('#match-timer-len-period').val(lenPeriod)
     $('#match-timer-len-break').val(lenBreak)
-    $('#match-timer-rolling').prop('checked', rollingClock)
+    $('#match-timer-len-warmup').val(lenWarmup)
+    // $('#match-timer-rolling').prop('checked', rollingClock)
 
     // Bind window open function
     $('#window-open').click(function () {
-        ext = window.open('./standard-screen.html', 'null',
+        ext = window.open('./rolling-screen.html', 'null',
             "height=1080,width=1920,menubar=no,location=no,dependent=yes,resizable,scrollbars=no,personalbar=no");
         // Close external display if confirmed
         $( window ).on('unload', function () {
@@ -412,23 +400,29 @@ $( document ).ready(function () {
     $('#match-timer-len-break').change(function () {
         lenBreak = parseInt($( this ).val());
     })
-    $('#match-timer-rolling').change(function () {
-        if ($( this ).prop('checked') == true) {
-            rollingClock = true;
-        } else {
-            rollingClock = false;
+    $('#match-timer-len-warmup').change(function () {
+        lenWarmup = parseInt($( this ).val());
+        if (!gameStarted) {
+            resetGame();
         }
     })
+    // $('#match-timer-rolling').change(function () {
+    //     if ($( this ).prop('checked') == true) {
+    //         rollingClock = true;
+    //     } else {
+    //         rollingClock = false;
+    //     }
+    // })
 
     // Bind team-alteration selects
-    $('#team-home').change(function () {
-        alterBGTeamImage('#team-img-home', $( this ).val());
-        alterBGTeamScore('#team-score-home', $( this ).val(), scoreHome);
-    })
-    $('#team-away').change(function () {
-        alterBGTeamImage('#team-img-away', $( this ).val());
-        alterBGTeamScore('#team-score-away', $( this ).val(), scoreAway);
-    })
+    // $('#team-home').change(function () {
+    //     alterBGTeamImage('#team-img-home', $( this ).val());
+    //     alterBGTeamScore('#team-score-home', $( this ).val(), scoreHome);
+    // })
+    // $('#team-away').change(function () {
+    //     alterBGTeamImage('#team-img-away', $( this ).val());
+    //     alterBGTeamScore('#team-score-away', $( this ).val(), scoreAway);
+    // })
 
     // Should now be ready - reset game to start!
     resetGame();

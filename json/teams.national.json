@@ -31,6 +31,22 @@
             "bg-clr":"rgb(0,43,94)",
             "tx-clr":"rgb(255,205,5)"
         },
+    "canberra-women-gold":
+        {
+            "name":"Chargettes Lightning",
+            "img":"./img/team-img/ChargettesClearNotext-01.png",
+            "img-clr":"rgb(255,205,5)",
+            "bg-clr":"rgb(255,205,5)",
+            "tx-clr":"rgb(0,43,94)"
+        },
+    "canberra-women-blue":
+        {
+            "name":"Chargettes Thunder",
+            "img":"./img/team-img/ChargettesClearNotext-01.png",
+            "img-clr":"rgb(0,43,94)",
+            "bg-clr":"rgb(0,43,94)",
+            "tx-clr":"rgb(255,205,5)"
+        },
     "canberra-women":
         {
             "name":"Canberra Chargettes", 
@@ -59,9 +75,33 @@
         {
             "name":"Newcastle Cobras", 
             "img":"./img/team-img/floorballnewcastle.png",
-            "img-clr":"rgb(180,180,180)",
-            "bg-clr":"rgb(180,180,180)",
+            "img-clr":"rgb(210,210,210)",
+            "bg-clr":"rgb(210,210,210)",
             "tx-clr":"red"
+        },
+    "pakencastle":
+        {
+            "name":"Pakencastle",
+            "img":"./img/team-img/Pakencastle.png",
+            "img-clr":"rgb(210,210,210)",
+            "bg-clr":"rgb(210,210,210)",
+            "tx-clr":"red"
+        },
+    "glebondi":
+        {
+            "name":"Team Glebe Bondi",
+            "img":"./img/team-img/Glebondi.png",
+            "img-clr":"white",
+            "bg-clr":"white",
+            "tx-clr":"rgb(14,178,51)"
+        },
+    "glebe":
+        {
+            "name":"Glebe",
+            "img":"./img/team-img/Glebe.png",
+            "img-clr":"white",
+            "bg-clr":"white",
+            "tx-clr":"black"
         },
     "northern-beaches":
         {
@@ -69,7 +109,7 @@
             "img":"./img/team-img/NBlogo.png",
             "img-clr":"red",
             "bg-clr":"red",
-            "tx-clr":"black"
+            "tx-clr":"white"
         },
     "peninsula-men":
         {
@@ -86,5 +126,29 @@
             "img-clr":"white",
             "bg-clr":"white",
             "tx-clr":"rgb(56,83,164)"
+        },
+    "wollongong":
+        {
+            "name":"Wollongong FC",
+            "img":"./img/team-img/Wollongong.png",
+            "img-clr":"black",
+            "bg-clr":"black",
+            "tx-clr":"rgb(244,147,47)"
+        },
+    "states-of-aus":
+        {
+            "name":"Combined States",
+            "img":"./img/team-img/StatesOfAusColoured.gif",
+            "img-clr":"black",
+            "bg-clr":"black",
+            "tx-clr":"white"
+        },
+    "australia":
+        {
+            "name":"Australia",
+            "img":"./img/team-img/australian-flag-large.png",
+            "img-clr": "rgb(0, 0, 0)",
+            "bg-clr":"rgb(0, 0, 0)",
+            "tx-clr":"rgb(255, 255, 255)"
         }
 }

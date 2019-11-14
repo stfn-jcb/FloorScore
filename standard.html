@@ -1,10 +1,12 @@
 <html>
 <head>
 <title>Web Score System - Rolling Clock</title>
+<script src="./js/lowLag.js"></script>
+<script src="./js/sm2/js/soundmanager2.js"></script>
 <script src='./js/jquery-3.1.0.min.js'></script>
 <script src='./js/tock.min.js'></script>
-<script src='./js/rolling.js'></script>
-<script src='./js/jquery.timer.js'></script>
+<script src='./js/standard.js'></script>
+<!--<script src='./js/jquery.timer.js'></script>-->
 
 <link rel='stylesheet' href='./css/board.css' />
 </head>
@@ -24,18 +26,19 @@
         <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
     <tr><td><input type='button' value='+1 min' onclick='MatchClockTock.alterTime(60.)' /></td>
         <td><input type='button' value='+10 sec' onclick='MatchClockTock.alterTime(10.)' /></td>
-        <td><input type='button' value='+1 sec' onclick='MatchClockTock.alterTime(1.)' /></td></tr>
+        <td><input type='button' value='+1 sec' onclick='MatchClockTock.alterTime(1.)' /></td>
+        <td><input type='button' value='+0.1 sec' onclick='MatchClockTock.alterTime(0.1)' /></td></tr>
     <tr><td><input type='button' value='-1 min' onclick='MatchClockTock.alterTime(-60.)' /></td>
         <td><input type='button' value='-10 sec' onclick='MatchClockTock.alterTime(-10.)' /></td>
-        <td><input type='button' value='-1 sec' onclick='MatchClockTock.alterTime(-1.)' /></td></tr>
+        <td><input type='button' value='-1 sec' onclick='MatchClockTock.alterTime(-1.)' /></td>
+        <td><input type='button' value='-0.1 sec' onclick='MatchClockTock.alterTime(-0.1)' /></td></tr>
     <tr><td><input type='button' value='+ period' onclick='alterPeriod(1)' /></td>
         <td><input type='button' value='- period' onclick='alterPeriod(-1)' /></td></tr>
-    <tr><td colspan=3><input type='button' value='Reset system' onclick='resetGameManual()' /></td></tr>
+    <tr><td colspan=3><input type='button' value='End game/reset system' onclick='resetGameManual()' /></td></tr>
     </table>
         No periods: <select id='match-timer-no-periods'></select><br />
         Len. period: <select id='match-timer-len-period'></select><br />
         Len. break: <select id='match-timer-len-break'></select><br />
-        Len. warm-up: <select id='match-timer-len-warmup'></select><br />
         Rolling clock? <input type='checkbox' id='match-timer-rolling' checked /><br />
     </form>
 </div>
@@ -61,7 +64,7 @@
 </div> -->
 
 <div class='half' id='team-attributes' style='background: cyan;'>
-<!-- <div class='home'>
+<div class='home'>
 <h2>Team information</h2>
 <h3>Home team</h3>
 Team: <select id='team-home'>
@@ -85,7 +88,7 @@ Team: <select id='team-away'>
 <input type='button' value='- goal' onclick='alterAwayScore(-1)' />
 </div>
 </td></tr></table>
-</div> -->
+</div>
 
 <div style='clear:both;'>
 <button id='window-open'>Open external display</button>
