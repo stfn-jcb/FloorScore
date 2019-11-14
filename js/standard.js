@@ -361,8 +361,6 @@ $( document ).ready(function () {
 
     teamdata = {};
     [
-    "./json/teams.canberra.json",
-    "./json/teams.national.json",
     "./json/teams.colours.json"
     ].forEach(function (i) {
         ($.getJSON(i, function (json) { 
