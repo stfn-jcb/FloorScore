@@ -201,14 +201,18 @@ function toggleClock(clock) {
 
 function clockRed(id) {
     var $select = $(id);
-    $select.attr('style', '');
-    $select.attr('style', 'border-right: 10px solid red;');
+    // $select.attr('style', '');
+    // $select.attr('style', 'border-right: 10px solid red;');
+    $select.removeClass('clockGreen');
+    $select.addClass('clockRed');
 }
 
 function clockGreen(id) {
     var $select = $(id);
-    $select.attr('style', '');
-    $select.attr('style', 'border-right: 10px solid green;');
+    // $select.attr('style', '');
+    // $select.attr('style', 'border-right: 10px solid green;');
+    $select.removeClass('clockRed');
+    $select.addClass('clockGreen');
 }
 
 // Common functions

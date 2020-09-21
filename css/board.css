@@ -4,7 +4,11 @@ body {
 
 #match-timer {
     font-family: "Lucida Console", monospace;
+    display: inline-block;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
     font-size: 62pt;
+    height: 66pt;
 }
 
 #match-period {
@@ -49,4 +53,25 @@ input[type='button'], button, select, select option {
 
 #timer-attributes td input[type='button'] {
     width: 100%;
+}
+
+.clockGreen {
+    /*border-right: 10px solid green;*/
+}
+.clockGreen::after {
+    content: '\0025BA';
+    color: green;
+    padding-left: 10px;
+    font-size: 105%;
+}
+
+.clockRed {
+    /*border-right: 10px solid red;*/
+}
+.clockRed::after {
+    /*content: '\0023F8';*/
+    /*content: '\00258D\00258D';*/
+    content: '\00275A\00275A';
+    color: red;
+    padding-left: 10px;
 }
