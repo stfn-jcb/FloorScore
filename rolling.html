@@ -93,4 +93,15 @@ Team: <select id='team-away'>
 
 </body>
 
+<!-- Do some other binding actions -->
+<script>
+    // Bind spacebar to start/stop clocks
+    $(window).keypress(function(e) {
+        if (e.which == 32 ) {
+            startGame();
+            toggleClock(MatchClockTock);
+        }
+    });
+</script>
+
 </html>
