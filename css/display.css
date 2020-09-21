@@ -95,7 +95,7 @@ div.team-logo {
     font-weight: bold;
     padding: 10px;
     background-origin: content-box;
-    background-size: 90% auto !important;
+    background-size: 75% auto !important;
 }
 
 #team-img-home, #team-score-home, #team-name-home {
