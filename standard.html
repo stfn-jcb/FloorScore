@@ -21,6 +21,7 @@
     <form id="match-timer-form">
     <table>
     <tr><td colspan=3>
+        <p style="text-align:center;"><strong>NEW: Hit the space bar</strong> or click below to:</p>
         <input type='button' value='Resume/Pause Time' onclick='startGame();toggleClock(MatchClockTock);' id='clock-toggle'/></td>
         <!-- <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br /> -->
         <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
@@ -95,5 +96,16 @@ Team: <select id='team-away'>
 </div>
 
 </body>
+
+<!-- Do some other binding actions -->
+<script>
+    // Bind spacebar to start/stop clocks
+    $(window).keypress(function(e) {
+        if (e.which == 32 ) {
+            startGame();
+            toggleClock(MatchClockTock);
+        }
+    });
+</script>
 
 </html>
