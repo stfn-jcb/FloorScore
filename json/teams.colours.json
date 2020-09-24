@@ -86,5 +86,13 @@
             "img-clr":"Black",
             "bg-clr":"Black",
             "tx-clr":"white"
-        }
+        },
+    "brown":
+    {
+        "name":"Brown",
+        "img":"./img/team-img/bm_afa_act_logo_white_transparent_rgb.png",
+        "img-clr":"saddlebrown",
+        "bg-clr":"saddlebrown",
+        "tx-clr":"white"
+    }
 }

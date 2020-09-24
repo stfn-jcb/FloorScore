@@ -251,7 +251,8 @@ function populateSelectTeamArray (id, arr) {
     // })
     $.each(arr, function (key, value) {
         // console.log(key);
-        $select.append($('<option></option>').val(key).html(value['name']));
+        $select.append($('<option></option>').val(key).html(value['name'])
+            .css('background-color', value['bg-clr']).css('color', value['tx-clr']));
     });
 }
 function populateSelects () {

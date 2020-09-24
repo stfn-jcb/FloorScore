@@ -75,3 +75,8 @@ input[type='button'], button, select, select option {
     color: red;
     padding-left: 10px;
 }
+
+#team-home option:hover, #team-away option:hover{
+    background-color: inherit;
+    color: inherit;
+}
