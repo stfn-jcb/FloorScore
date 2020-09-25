@@ -26,9 +26,15 @@ $( document ).ready(function () {
     };
     targetNode = window.opener.document.querySelector('#timer-attributes');
     observer = new MutationObserver(function (mutations) {
-        var currTime = window.opener.$('#match-timer').html();
+        var t = window.opener.$('#match-timer');
+        var currTime = t.html();
+        var currBorder = t.css("borderTopColor");
+        console.log('currBorder = ' + currBorder);
         // console.log(currTime)
-        $('#match-timer').html( currTime );
+        var timerDisp = $('#match-timer');
+        timerDisp.html( currTime );
+        timerDisp.css('border', '2px solid ' + currBorder );
+
         var currPer = window.opener.$('#match-period').html();
         // console.log(currTime)
         $('#match-period').html( currPer );
@@ -77,10 +83,10 @@ $( document ).ready(function () {
 </head>
 
 <body>
-<div class='bgimage' id='tourney-logo' style='background-image:url(./img/tourney/FACTBanner.png)'></div>
+<!--<div class='bgimage' id='tourney-logo' style='background-image:url(./img/tourney/FACTBanner.png)'></div>-->
 
-<p id='match-timer'></p>
-<p id='match-period'>P</p>
+<div id='match-timer'></div>
+<div id='match-period'>P</div>
 <div id='advertising'>
     <table>
     <tr><td><img src='./img/bm_afa_act_logo_white_transparent_rgb.png' /></td>
@@ -93,13 +99,13 @@ $( document ).ready(function () {
     <td></td>
     </table>
     <div class='bgimage team-logo' id='team-img-home'></div>
-    <div class='bgimage team-logo' id='team-score-home'></div>
+    <div class='bgimage team-score' id='team-score-home'></div>
 
     <table class='team-name' id='team-name-away'>
     <td></td>
     </table>
     <div class='bgimage team-logo' id='team-img-away'></div>
-    <div class='bgimage team-logo' id='team-score-away'></div>
+    <div class='bgimage team-score' id='team-score-away'></div>
 
 </body>
 
