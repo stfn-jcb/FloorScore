@@ -28,12 +28,12 @@ $( document ).ready(function () {
     observer = new MutationObserver(function (mutations) {
         var t = window.opener.$('#match-timer');
         var currTime = t.html();
-        var currBorder = t.css("borderTopColor");
-        console.log('currBorder = ' + currBorder);
+        var currBorder = t.css("borderLeftColor");
         // console.log(currTime)
         var timerDisp = $('#match-timer');
         timerDisp.html( currTime );
         timerDisp.css('border', '2px solid ' + currBorder );
+        $('#match-timer #timerColon').css('color', currBorder) ;
 
         var currPer = window.opener.$('#match-period').html();
         // console.log(currTime)

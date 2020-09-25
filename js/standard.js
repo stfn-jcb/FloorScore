@@ -62,7 +62,7 @@ function resetGame() {
             // } else {
             //     $('#match-timer').text(MatchClockTock.lap('{ss}.{ll}'));
             // }
-            $('#match-timer').text(formatTime(this.lap()));
+            $('#match-timer').html(formatTime(this.lap()));
             if ((!isPlay) && (this.lap() < 30*1000) && (this.lap() > 29*1000) && (!warningGiven)) {
                 lowLag.play('warningThirty');
                 warningGiven = true;
@@ -225,7 +225,7 @@ function formatTime(time) {
     var min = parseInt(time / 60000),
         sec = parseInt(time / 1000) - (min * 60),
         mills = Math.floor((time - (sec * 1000) - (min * 60000)) / 100);
-    return (min > 0 ? pad(min, 2) + ":" : "00:") + pad(sec, 2) + (min < 1 ? "." + mills : "");
+    return (min > 0 ? pad(min, 2) + "<g id='timerColon'>:</g>" : "<g id='timerColon'>:</g>") + pad(sec, 2) + (min < 1 ? "." + mills : "");
 }
 function startGame() {
     gameStarted = true;
