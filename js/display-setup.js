@@ -70,7 +70,7 @@ function formatScreen () {
     timerFS = parseInt(matchTimer.css('font-size'));
     matchPeriod.css('top', tourneyLogoH+timerH+'px');
     matchPeriod.css('height', 0.65 * timerH + "px");
-    matchPeriod.css('line-height', 0.65 * timerH + "px");
+    // matchPeriod.css('line-height', 0.40 * timerH + "px");
     matchPeriod.css('font-size', 0.45 * timerH + "px");
     periodH = parseInt(matchPeriod.css('height'));
     periodBoxes = $( '.period-box' );
