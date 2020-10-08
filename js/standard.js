@@ -329,18 +329,20 @@ function alterPeriod(inc) {
    }
     var conf = confirm("Are you sure? You don't need to alter the period manually unless there has been an error")
     if (conf) {
-        if ((period+inc <= noPeriods) && (period+inc > 0)) {
-            period += inc;
-            if (isPlay) {
-                $('#match-period').text(period);
-            } else {
-                $('#match-period').html(period+' next...');
+        if (isPlay) {
+            if (period + inc <= noPeriods) {
+                period += inc;
+                isPlay = false;
+                $('#match-period').html(period + ' next...');
             }
+        } else {
+            isPlay = true;
+            $('#match-period').html(period);
         }
     }
-    if (wasGoing) {
-        MatchClockTock.pause();
-    }
+    // if (wasGoing) {
+    //     MatchClockTock.pause();
+    // }
 }
 
 
