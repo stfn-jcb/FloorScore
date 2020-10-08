@@ -46,6 +46,7 @@ html, body {
     color: white;
     background: rgb(30,30,30);
     border: 2px solid rgb(30,30,30);
+    border-radius: 2vh;
 }
 
 #timerRedundant {
@@ -123,6 +124,7 @@ div.team-logo {
     position: absolute;
     top: 15vh;
     height: 40vh !important;
+    border-radius: 2vh 2vh 0vh 0vh;
 }
 
 div.team-score {
@@ -131,6 +133,7 @@ div.team-score {
     top: 55vh;
     height: 40vh !important;
     box-sizing: content-box;
+    border-radius: 0 0 2vh 2vh;
 }
 
 #team-img-home, #team-score-home, #team-name-home {
