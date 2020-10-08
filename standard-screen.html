@@ -15,6 +15,14 @@ $( document ).ready(function () {
     // console.log(currTime)
     $('#match-period').html( currPer );
 
+    // Blink the active period box
+    function blinkActivePeriod () {
+        console.log("Doing blinkActivePeriod");
+        let currPerBox = $('.period-box-active');
+        currPerBox.fadeOut(500., blinkActivePeriod);
+    }
+    blinkActivePeriod();
+
     // Mutation observer approach
     // Team clock observer
     // console.log('Mutation observer!')
@@ -37,9 +45,9 @@ $( document ).ready(function () {
 
         // console.log('Updating current period...');
         let noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
-        console.log('No. periods at reset: ' + noPeriods);
+        // console.log('No. periods at reset: ' + noPeriods);
         let currPer = window.opener.$('#match-period').html();
-        console.log('Current period at reset: ' + currPer);
+        // console.log('Current period at reset: ' + currPer);
         for (let i = 1; i <= noPeriods; i++) {
             let box = $('#period-' + i);
             box.removeClass().addClass('period-box');
