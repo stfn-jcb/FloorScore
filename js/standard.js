@@ -103,7 +103,7 @@ function resetGame() {
                     newTime = 0.;
                 }
                 // $('#match-period').html(period-1+' (break)');
-                $('#match-period').html(period+' next...');
+                $('#match-period').html(period+' next (period break)');
             } else {
                 isPlay = true;
                 newTime = lenPeriod * 60. * 1000.;
