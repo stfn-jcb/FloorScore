@@ -16,12 +16,13 @@ $( document ).ready(function () {
     $('#match-period').html( currPer );
 
     // Blink the active period box
-    function blinkActivePeriod () {
-        console.log("Doing blinkActivePeriod");
-        let currPerBox = $('.period-box-active');
-        currPerBox.fadeOut(500., blinkActivePeriod);
+    function blinkActive (selector) {
+        let elem = $(selector);
+        elem.fadeOut(750, 'linear', function () {
+            elem.fadeIn(250, 'linear', function () { blinkActive(selector); })
+        })
     }
-    blinkActivePeriod();
+
 
     // Mutation observer approach
     // Team clock observer
@@ -60,6 +61,7 @@ $( document ).ready(function () {
                     // console.log('Looking for ' + '#period-arrow-' + (i-1) + '-' + i);
                     let perArrowNow = $('#period-arrow-' + (i-1) + '-' + i);
                     perArrowNow.addClass('period-arrow-visible');
+                    blinkActive('.period-arrow-visible');
                 } else {
                     box.addClass('period-box-active');
                     $('.period-arrow').removeClass('period-arrow-visible');
