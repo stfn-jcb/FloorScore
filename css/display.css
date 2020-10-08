@@ -193,7 +193,7 @@ div.team-score {
     background: black;
     color: dimgray;
     /*height: 90%;*/
-    line-height: 110%;
+    line-height: 100%;
     display: inline-block;
     margin: 2vh 2vh 0 2vh;
 }

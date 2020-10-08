@@ -260,7 +260,7 @@ function populateSelects () {
     // for (i=1; i<=10; i++) {
     //     $perLen.append($('<option></option>').val(i).html(i))
     // }
-    populateSelect('#match-timer-no-periods', 1, 10);
+    populateSelect('#match-timer-no-periods', 1, 9);
     populateSelect('#match-timer-len-period', 1, 30);
     populateSelect('#match-timer-len-break', 1, 15);
 }
