@@ -57,6 +57,7 @@ $( document ).ready(function () {
         homeScore.attr('style', currHomeScoreStyle);
         var currHomeScore = window.opener.$('#team-score-home').text();
         homeScore.text( currHomeScore );
+        console.log(homeScore.attr('style'));
         homeImg.css('color', homeScore.css('color'));
 
         var currAwayName = window.opener.$('#team-away option:selected').text();
