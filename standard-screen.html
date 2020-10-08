@@ -37,12 +37,12 @@ $( document ).ready(function () {
 
         // console.log('Updating current period...');
         let noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
+        console.log('No. periods at reset: ' + noPeriods);
         let currPer = window.opener.$('#match-period').html();
+        console.log('Current period at reset: ' + currPer);
         for (let i = 1; i <= noPeriods; i++) {
             let box = $('#period-' + i);
-            // $('.period-arrow').removeClass('period-arrow-visible');
-            box.removeClass(['period-box-active', 'period-box-next', 'period-box-complete']);
-            box.addClass('period-box');
+            box.removeClass().addClass('period-box');
             let currPerInt = parseInt(currPer);
             if (i < currPerInt) {
                 box.addClass('period-box-complete');
