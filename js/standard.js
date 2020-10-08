@@ -176,7 +176,8 @@ function resetGame() {
 
 }
 
-function resetGameManual() {
+function resetGameManual(clock) {
+    if (clock.go) { toggleClock(clock); }
     var confirmReset = confirm('Are you sure? This will remove all current game information...');
     if (confirmReset) {
         resetGame();
