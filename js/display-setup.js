@@ -8,7 +8,7 @@ var advertImgList = [
 var advertShown = 0;
 
 function formatScreen () {
-    console.log('Running formatScreen()...');
+    // console.log('Running formatScreen()...');
     // Home team logo & score
     var tourneyLogoH = parseInt($('#tourney-logo').css('height'));
     var teamNameHome = $('#team-name-home');
@@ -74,9 +74,11 @@ function formatScreen () {
     matchPeriod.css('font-size', 0.45 * timerH + "px");
     periodH = parseInt(matchPeriod.css('height'));
     periodBoxes = $( '.period-box' );
-    periodBoxes.each(function (index) {
-        $(this).css('width', $(this).css('height'));
-    });
+    periodBoxes.css('width', periodBoxes.css('height'));
+    $('.period-arrow')
+        .css('height', periodBoxes.css('height'))
+        .css('line-height', periodBoxes.css('height'))
+        .css('margin-top', periodBoxes.css('margin-top'));
 
     // Advertising
     advertW = parseInt(advertising.css('width'));
@@ -89,7 +91,7 @@ function formatScreen () {
     advertising.css('top', advertY+'px');
     advertising.css('height', 0.4*advertW+'px');
     var advertH = parseInt(advertising.css('height'));
-    console.log(0.18*advertH + 'px')
+    // console.log(0.18*advertH + 'px')
     $('#advertising td').css('font-size', 0.08*advertH + 'px');
 
 }

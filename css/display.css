@@ -195,6 +195,7 @@ div.team-score {
     /*height: 90%;*/
     line-height: 100%;
     display: inline-block;
+    vertical-align: middle;
     margin: 2vh 2vh 0 2vh;
 }
 
@@ -213,4 +214,20 @@ div.team-score {
     background: rgb(45,45,45);
     border-color: rgb(45,45,45);
     color: black;
+}
+
+.period-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    color: black;
+    background: black;
+    font-weight: lighter;
+    font-size: 37%;
+    /*font-stretch: condensed;*/
+    margin: 0;
+    padding: 0;
+}
+
+.period-arrow-visible {
+    color: white;
 }

@@ -15,28 +15,6 @@ $( document ).ready(function () {
     // console.log(currTime)
     $('#match-period').html( currPer );
 
-    // Read and implement number of match periods
-    // Only re-write period boxes on selector change
-    function updateNoPeriods () {
-        matchPeriod = $('#match-period');
-        matchPeriod.html('');
-        noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
-        console.log('noPeriods = ' + noPeriods);
-        for (let i = 1; i <= noPeriods; i++) {
-            matchPeriod.append("<div id='period-" + i + "' class='period-box'>" + i + "</div>");
-        }
-        let adverts = $('#advertising');
-        if (noPeriods > 5) {
-            adverts.css('visibility', 'hidden');
-        } else {
-            adverts.css('visibility', 'visible');
-        }
-        formatScreen();
-        updateCurrentPeriod();
-    }
-    updateNoPeriods();
-    window.opener.$('#match-timer-no-periods').change(updateNoPeriods);
-
     // Mutation observer approach
     // Team clock observer
     // console.log('Mutation observer!')
@@ -57,12 +35,13 @@ $( document ).ready(function () {
         timerDisp.css('border', '2px solid ' + currBorder );
         $('#match-timer #timerColon').css('color', currBorder) ;
 
-        console.log('Updating current period...');
+        // console.log('Updating current period...');
         let noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
         let currPer = window.opener.$('#match-period').html();
         for (let i = 1; i <= noPeriods; i++) {
             let box = $('#period-' + i);
-            box.removeClass();
+            // $('.period-arrow').removeClass('period-arrow-visible');
+            box.removeClass(['period-box-active', 'period-box-next', 'period-box-complete']);
             box.addClass('period-box');
             let currPerInt = parseInt(currPer);
             if (i < currPerInt) {
@@ -70,8 +49,12 @@ $( document ).ready(function () {
             } else if (currPerInt == i) {
                 if (currPer.includes('next')) {
                     box.addClass('period-box-next');
+                    // console.log('Looking for ' + '#period-arrow-' + (i-1) + '-' + i);
+                    let perArrowNow = $('#period-arrow-' + (i-1) + '-' + i);
+                    perArrowNow.addClass('period-arrow-visible');
                 } else {
                     box.addClass('period-box-active');
+                    $('.period-arrow').removeClass('period-arrow-visible');
                 }
             }
         }
@@ -82,6 +65,31 @@ $( document ).ready(function () {
     // Do an initial update on open
     updateTimer();
     observer.observe(targetNode, observerConfig);
+
+    // Read and implement number of match periods
+    // Only re-write period boxes on selector change
+    function updateNoPeriods () {
+        matchPeriod = $('#match-period');
+        matchPeriod.html('');
+        noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
+        // console.log('noPeriods = ' + noPeriods);
+        for (let i = 1; i <= noPeriods; i++) {
+            matchPeriod.append("<div id='period-" + i + "' class='period-box'>" + i + "</div>");
+            if (i < noPeriods) {
+                matchPeriod.append("<div id='period-arrow-" + i + "-" + (i+1) + "' class='period-arrow'>&#10095;</div>")
+            }
+        }
+        let adverts = $('#advertising');
+        if (noPeriods > 5) {
+            adverts.css('visibility', 'hidden');
+        } else {
+            adverts.css('visibility', 'visible');
+        }
+        updateTimer();
+        formatScreen();
+    }
+    updateNoPeriods();
+    window.opener.$('#match-timer-no-periods').change(updateNoPeriods);
 
     function updateScores () {
         var homeScore, awayScore, homeImg, awayImg;
@@ -98,7 +106,7 @@ $( document ).ready(function () {
         homeScore.attr('style', currHomeScoreStyle);
         var currHomeScore = window.opener.$('#team-score-home').text();
         homeScore.text( currHomeScore );
-        console.log(homeScore.attr('style'));
+        // console.log(homeScore.attr('style'));
         homeImg.css('color', homeScore.css('color'));
 
         var currAwayName = window.opener.$('#team-away option:selected').text();
