@@ -20,6 +20,7 @@ function formatScreen () {
     var matchTimer = $('#match-timer');
     var matchPeriod = $('#match-period');
     var advertising = $('#advertising');
+    var scoreFontSizeFactor = 0.75;
 
     teamNameHome.css('top', tourneyLogoH+'px');
     var homeLogoW = parseInt(teamImgHome.css('width'));
@@ -37,7 +38,7 @@ function formatScreen () {
     var homeScoreY = homeNameH + tourneyLogoH;
     // console.log(homeScoreY)
     teamScoreHome.css("top", homeScoreY+'px');
-    teamScoreHome.css("font-size", 0.6*parseInt(homeLogoW)+'px');
+    teamScoreHome.css("font-size", scoreFontSizeFactor*parseInt(homeLogoW)+'px');
 
     teamNameAway.css('top', tourneyLogoH+'px');
     var awayLogoW = parseInt(teamImgAway.css('width'));
@@ -55,7 +56,7 @@ function formatScreen () {
     var awayScoreY = awayNameH + tourneyLogoH;
     // console.log(awayScoreY)
     teamScoreAway.css("top", awayScoreY+'px');
-    teamScoreAway.css("font-size", 0.6*parseInt(awayLogoW)+'px');
+    teamScoreAway.css("font-size", scoreFontSizeFactor*parseInt(awayLogoW)+'px');
 
     // $('.team-logo').css('font-size', 0.8*homeLogoW+"px");
 
@@ -63,9 +64,9 @@ function formatScreen () {
     timerW = parseInt(matchTimer.css('width'));
     // console.log(timerW);
     matchTimer.css('height', 0.3*timerW+"px");
-    matchTimer.css('line-height', 0.3*timerW+"px");
+    matchTimer.css('line-height', 0.32*timerW+"px");
     timerH = parseInt(matchTimer.css('height'));
-    matchTimer.css('font-size', 0.77*timerH+"px");
+    matchTimer.css('font-size', 0.84*timerH+"px");
     timerFS = parseInt(matchTimer.css('font-size'));
     matchPeriod.css('top', tourneyLogoH+timerH+'px');
     matchPeriod.css('height', 0.65 * timerH + "px");
