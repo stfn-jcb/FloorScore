@@ -15,30 +15,6 @@ $( document ).ready(function () {
     // console.log(currTime)
     $('#match-period').html( currPer );
 
-    // Do correct highlighting for periods on period change
-    function updateCurrentPeriod () {
-        console.log('Updating current period...');
-        let noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
-        let currPer = window.opener.$('#match-period').html();
-        for (let i = 1; i <= noPeriods; i++) {
-            let box = $('#period-' + i);
-            box.removeClass();
-            box.addClass('period-box');
-            let currPerInt = parseInt(currPer);
-            if (i < currPerInt) {
-                box.addClass('period-box-complete');
-            } else if (currPerInt == i) {
-                if (currPer.includes('next')) {
-                    box.addClass('period-box-next');
-                } else {
-                    box.addClass('period-box-active');
-                }
-            }
-        }
-    }
-    // updateCurrentPeriod();
-    // window.opener.$('#match-period').change(updateCurrentPeriod);
-
     // Read and implement number of match periods
     // Only re-write period boxes on selector change
     function updateNoPeriods () {
