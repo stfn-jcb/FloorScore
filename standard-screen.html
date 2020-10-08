@@ -37,7 +37,7 @@ $( document ).ready(function () {
 
         var currPer = window.opener.$('#match-period').html();
         // console.log(currTime)
-        $('#match-period').html( currPer );
+        $('#match-period').html( "<div class='period-box period-box-complete'>" + currPer + "</div><div class='period-box period-box-active'>" + currPer + "</div>" + "<div class='period-box period-box-next'>" + currPer + "</div>" + "<div class='period-box period-box'>" + currPer + "</div>" );
     }
     observer = new MutationObserver(updateTimer);
     // Do an initial update on open

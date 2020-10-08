@@ -73,6 +73,10 @@ function formatScreen () {
     matchPeriod.css('line-height', 0.65 * timerH + "px");
     matchPeriod.css('font-size', 0.45 * timerH + "px");
     periodH = parseInt(matchPeriod.css('height'));
+    periodBoxes = $( '.period-box' );
+    periodBoxes.each(function (index) {
+        $(this).css('width', $(this).css('height'));
+    });
 
     // Advertising
     advertW = parseInt(advertising.css('width'));

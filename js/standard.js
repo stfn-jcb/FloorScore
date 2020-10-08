@@ -322,7 +322,7 @@ function alterAwayScore (inc) {
 }
 
 function alterPeriod(inc) {
-    var wasGoing = MatchClockTock.go
+   var wasGoing = MatchClockTock.go
    if (wasGoing) {
      MatchClockTock.pause();
    }

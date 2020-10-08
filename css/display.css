@@ -41,7 +41,6 @@ html, body {
     line-height: 30vh;
     font-family: "Lucida Console", monospace;
     font-size: 30vh;
-    background: none;
     text-align: center;
     color: white;
     background: rgb(30,30,30);
@@ -61,17 +60,19 @@ html, body {
     /*height: 20vh;*/
     position: absolute;
     left: 25vw;
-    top: 35vh;
+    top: 36vh;
     /*background: cyan;*/
     text-align: center;
     color: white;
     font-weight: bold;
+    padding: 0;
+    margin: 0;
 }
 
-#match-period::before {
-    content: "Period: ";
-    font-weight: normal;
-}
+/*#match-period::before {*/
+/*    content: "Period: ";*/
+/*    font-weight: normal;*/
+/*}*/
 
 .bgimage {
     background-position: center !important;
@@ -181,4 +182,35 @@ div.team-score {
 #advertising-space {
     /*background: cyan;*/
     background-size: 78% !important;
+}
+
+/* Period boxes */
+
+.period-box {
+    border-radius: 2vh;
+    border: 2px solid dimgray;
+    box-sizing: border-box;
+    background: black;
+    color: dimgray;
+    /*height: 90%;*/
+    line-height: 110%;
+    display: inline-block;
+    margin: 2vh 2vh 0 2vh;
+}
+
+.period-box-next {
+    border-color: white;
+    color: white;
+}
+
+.period-box-active {
+    background: white;
+    border-color: white;
+    color: black;
+}
+
+.period-box-complete {
+    background: rgb(45,45,45);
+    border: white;
+    color: black;
 }
