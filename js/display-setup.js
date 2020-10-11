@@ -1,9 +1,10 @@
 // Formatting setup for screen
 
 var advertImgList = [
-'./img/sponsors/efloorball_logo_2000x1000-white.png',
-'./img/sponsors/PH-LOGO-edit-white-1200.png',
-'./img/sponsors/logo_florbee_final_1200.png'
+    './img/sponsors/EDS_33449_ACT_GOV_CBR_Reversed.png',
+    './img/sponsors/efloorball_logo_2000x1000-white.png',
+    './img/sponsors/PH-LOGO-edit-white-1200.png',
+    './img/sponsors/logo_florbee_final_1200.png'
 ];
 var advertShown = 0;
 
