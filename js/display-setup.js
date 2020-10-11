@@ -7,6 +7,7 @@ var advertImgList = [
     './img/sponsors/logo_florbee_final_1200.png'
 ];
 var advertShown = 0;
+var advertisingCadence = 45000.;
 
 function formatScreen () {
     // console.log('Running formatScreen()...');
@@ -114,5 +115,5 @@ $( document ).ready( function () {
         (advertShown < (advertImgList.length-1)) ? advertShown += 1 : advertShown = 0;
         console.log(advertShown);
         updateAdvert(advertShown);
-    }, 90000);
+    }, advertisingCadence);
 });
