@@ -113,7 +113,7 @@ $( document ).ready( function () {
     // Cycle advertising
     var advertCycle = setInterval(function () {
         (advertShown < (advertImgList.length-1)) ? advertShown += 1 : advertShown = 0;
-        console.log(advertShown);
+        // console.log(advertShown);
         updateAdvert(advertShown);
     }, advertisingCadence);
 });
