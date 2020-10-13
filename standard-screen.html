@@ -117,9 +117,16 @@ $( document ).ready(function () {
     // Read and implement number of match periods
     // Only re-write period boxes on selector change
     function updateNoPeriods () {
+        // End any and all period-related animations, and then remove any styles
+        // this might create
+        let periodRelated = $("[class^=period-]");
+        periodRelated.removeClass('period-box-active').removeClass('period-arrow-visible');
+        periodRelated.finish();
+        periodRelated.css('background-color', '').css('opacity', '');
+
         matchPeriod = $('#match-period');
         matchPeriod.html('');
-        noPeriods = parseInt(window.opener.$("#match-timer-no-periods").val());
+        noPeriods = window.opener.$('#match-timer-no-periods').val();
         // console.log('noPeriods = ' + noPeriods);
         for (let i = 1; i <= noPeriods; i++) {
             matchPeriod.append("<div id='period-" + i + "' class='period-box'>" + i + "</div>");
@@ -138,7 +145,11 @@ $( document ).ready(function () {
         formatScreen();
     }
     updateNoPeriods();
-    window.opener.$('#match-timer-no-periods').change(updateNoPeriods);
+    window.opener.$('#match-timer-no-periods').change(function () {
+        // Something goes wrong with the animations that blows up the system - need to just do a reload
+        // This shouldn't in game anyway.... hopefully.
+        window.location.reload();
+    });
 
     function updateScores () {
         var homeScore, awayScore, homeImg, awayImg;
