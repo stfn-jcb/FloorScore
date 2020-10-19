@@ -358,8 +358,8 @@ $( document ).ready(function () {
     if ( $( 'div#lowLag ').length == 0 ) {
         console.log('Initializing lowLag...');
         lowLag.init({sm2url: './js/sm2/swf/', urlPrefix: './mp3/'});
-        lowLag.load('47434BUZZER.mp3', 'buzzer');
-        lowLag.load('thirty.mp3', 'warningThirty');
+        lowLag.load(['47434BUZZER.mp3', '47434BUZZER.ogg'], 'buzzer');
+        lowLag.load(['thirty.mp3', 'thirty.ogg'], 'warningThirty');
     }
 
     clockToggleH = parseInt($('#clock-toggle').css('height'));
