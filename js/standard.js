@@ -442,6 +442,26 @@ $( document ).ready(function () {
         alterBGTeamScore('#team-score-away', $( this ).val(), scoreAway);
     })
 
+    // Set up the manual buzzer system
+    $('#arm-manual-buzzer').change(function () {
+        console.log('Clicked arm-manual-buzzer');
+        if ($(this).is(":checked")) {
+            // Enable buzzer button
+            $("#manual-buzzer").prop("disabled", false);
+        } else {
+            // Disable buzzer button
+            $("#manual-buzzer").prop("disabled", true);
+        }
+    });
+    $('#arm-manual-buzzer').prop("checked", false).change();
+
+    $('#manual-buzzer').click(function () {
+        lowLag.play('buzzer');
+        $('#arm-manual-buzzer').prop("checked", false).change();
+    });
+
+
     // Should now be ready - reset game to start!
     resetGame();
+
 });
