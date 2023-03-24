@@ -113,7 +113,8 @@ function resetGame() {
                     newTime = 0.;
                 }
                 // $('#match-period').html(period-1+' (break)');
-                $('#match-period').html(period+' next (period break)');
+                $('#match-period').html('Pause (danach Periode '+period+')');
+                //$('#match-period').html(period+' next (period break)');
             } else {
                 isPlay = true;
                 newTime = lenPeriod * 60. * 1000.;
@@ -192,7 +193,7 @@ function resetGame() {
 
 function resetGameManual(clock) {
     if (clock.go) { toggleClock(clock); }
-    var confirmReset = confirm('Are you sure? This will remove all current game information...');
+    var confirmReset = confirm('Spiel wirklich beenden oder zurücksetzen? Dies löscht alle vorhandenen Daten.');
     if (confirmReset) {
         resetGame();
     }
@@ -342,7 +343,7 @@ function alterPeriod(inc) {
    if (wasGoing) {
      toggleClock(MatchClockTock);
    }
-    var conf = confirm("Are you sure? You don't need to alter the period manually unless there has been an error")
+    var conf = confirm("Bist du sicher? Du musst die Periode nicht manuell ändern, solange kein Fehler passiert ist.")
     if (conf) {
         if (inc > 0) {
             // Just fire the clock completion

@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Web Score System - Rolling Clock</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Scoreboard - Floorball Kleinfeld</title>
 <script src="./js/lowLag.js"></script>
 <script src="./js/sm2/js/soundmanager2.js"></script>
 <script src='./js/jquery-3.1.0.min.js'></script>
@@ -15,91 +17,94 @@
 
 <!-- Let's do the timer things -->
 <div class='half' id='timer-attributes' style='background:pink;'>
-<h2>Display clock</h2>
-    <span id="match-timer">00:00:00</span><br />
-    Period: <span id="match-period">Waiting for start</span><br />
+<h2>Zeit</h2>
+    <span id="match-timer">00:00:00</span><br>
+    Periode: <span id="match-period">Warte auf Beginn</span><br>
     <form id="match-timer-form">
     <table>
     <tr><td colspan=4>
-        <button type='button' onclick='startGame();toggleClock(MatchClockTock);' id='clock-toggle' style="width: 100%;">Resume/Pause Time<br /><small style="background-color:yellow">(Spacebar)</small></button></td>
-        <!-- <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br /> -->
-        <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br /> -->
-    <tr><td><input type='button' value='+1 min' onclick='MatchClockTock.alterTime(-60.)' /></td>
-        <td><input type='button' value='+10 sec' onclick='MatchClockTock.alterTime(-10.)' /></td>
-        <td><input type='button' value='+1 sec' onclick='MatchClockTock.alterTime(-1.)' /></td>
-        <td><input type='button' value='+0.1 sec' onclick='MatchClockTock.alterTime(-0.1)' /></td></tr>
-    <tr><td><input type='button' value='-1 min' onclick='MatchClockTock.alterTime(60.)' /></td>
-        <td><input type='button' value='-10 sec' onclick='MatchClockTock.alterTime(10.)' /></td>
-        <td><input type='button' value='-1 sec' onclick='MatchClockTock.alterTime(1.)' /></td>
-        <td><input type='button' value='-0.1 sec' onclick='MatchClockTock.alterTime(0.1)' /></td></tr>
-        <tr><td colspan="2"><button type='button' onclick='alterPeriod(-1)' >&larr; Prev. time block</button></td>
-            <td colspan="2"><button type='button' onclick='alterPeriod(1)' >Next time block &rarr;</button></td>
+        <button type='button' onclick='startGame();toggleClock(MatchClockTock);' id='clock-toggle' style="width: 100%;">Zeit pausieren/starten<br><small style="background-color:yellow">(Leertaste)</small></button></td>
+        <!-- <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br> -->
+        <!-- <input type='text' name='startTime' value='900' style='width:30px;' /><br> -->
+    <tr><td><input type='button' value='+1 Min.' onclick='MatchClockTock.alterTime(-60.)' /></td>
+        <td><input type='button' value='+10 Sek.' onclick='MatchClockTock.alterTime(-10.)' /></td>
+        <td><input type='button' value='+1 Sek.' onclick='MatchClockTock.alterTime(-1.)' /></td>
+        <td><input type='button' value='+0.1 Sek.' onclick='MatchClockTock.alterTime(-0.1)' /></td></tr>
+    <tr><td><input type='button' value='-1 Min.' onclick='MatchClockTock.alterTime(60.)' /></td>
+        <td><input type='button' value='-10 Sek.' onclick='MatchClockTock.alterTime(10.)' /></td>
+        <td><input type='button' value='-1 Sek.' onclick='MatchClockTock.alterTime(1.)' /></td>
+        <td><input type='button' value='-0.1 Sek.' onclick='MatchClockTock.alterTime(0.1)' /></td></tr>
+        <tr><td colspan="2"><button type='button' onclick='alterPeriod(-1)' >&larr; vorheriger Zeitblock</button></td>
+            <td colspan="2"><button type='button' onclick='alterPeriod(1)' >n&auml;chster Zeitblock &rarr;</button></td>
         </tr>
-    <tr><td colspan=3><input type='button' value='End game/reset system' onclick='resetGameManual(MatchClockTock)' /></td></tr>
+    <tr><td colspan=3><input type='button' value='Spiel beenden/zur&uuml;cksetzen' onclick='resetGameManual(MatchClockTock)' /></td></tr>
     </table>
-        Number of periods in the game: <select id='match-timer-no-periods'></select><br />
-        Length of each period: <select id='match-timer-len-period'></select> minutes<br />
-        Length of each period break: <select id='match-timer-len-break'></select> minutes<br />
-        Auto-roll the clock into new periods?   <input type='checkbox' id='match-timer-roll-into-period' style="transform: scale(2,2)" checked /><br />
-        Auto-roll the clock into period breaks? <input type='checkbox' id='match-timer-roll-into-break'  style="transform: scale(2,2)" checked /><br />
+        Anzahl der Perioden im Spiel: <select id='match-timer-no-periods'></select><br>
+        L&auml;nge einer Periode: <select id='match-timer-len-period'></select> Minuten<br>
+        L&auml;nge der Pause zwischen Perioden: <select id='match-timer-len-break'></select> Minuten<br>
+        Automatisch Pause starten?&nbsp;&nbsp;<input type='checkbox' id='match-timer-roll-into-break'  style="transform: scale(2,2)" checked /><br>
+        Automatisch n&auml;chste Periode starten?&nbsp;&nbsp;<input type='checkbox' id='match-timer-roll-into-period' style="transform: scale(2,2)" checked /><br>
     </form>
+    <br>
 </div>
 
 <!-- <div class='half' id='timer-attributes' style='background:pink;'>
-<h2>Display clock</h3>
-    <span id="match-timer">00:00:00</span><br />
-    Period: <span id="match-period">Waiting for start</span><br />
+<h2>Zeit</h3>
+    <span id="match-timer">00:00:00</span><br>
+    Period: <span id="match-period">Warte auf Beginn</span><br>
     <form id="match-timer-form">
         <input type='button' value='Play/Pause' onclick='startGame();MatchClock.Timer.toggle();' />
-        <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br />
-        <input type='button' value='+1 min' onclick='MatchClock.alterTime(60.)' />
-        <input type='button' value='+10 sec' onclick='MatchClock.alterTime(10.)' />
-        <input type='button' value='+1 sec' onclick='MatchClock.alterTime(1.)' /><br />
-        <input type='button' value='-1 min' onclick='MatchClock.alterTime(-60.)' />
-        <input type='button' value='-10 sec' onclick='MatchClock.alterTime(-10.)' />
-        <input type='button' value='-1 sec' onclick='MatchClock.alterTime(-1.)' /><br />
-        No periods: <select id='match-timer-no-periods'></select><br />
-        Len. period: <select id='match-timer-len-period'></select><br />
-        Len. break: <select id='match-timer-len-break'></select><br />
-        Rolling clock? <input type='checkbox' id='match-timer-rolling' checked /><br />
+        <input type='button' value='Stop/Reset' onclick='MatchClock.resetCountdown();' /><br>
+        <input type='button' value='+1 Min.' onclick='MatchClock.alterTime(60.)' />
+        <input type='button' value='+10 Sek.' onclick='MatchClock.alterTime(10.)' />
+        <input type='button' value='+1 Sek.' onclick='MatchClock.alterTime(1.)' /><br>
+        <input type='button' value='-1 Min.' onclick='MatchClock.alterTime(-60.)' />
+        <input type='button' value='-10 Sek.' onclick='MatchClock.alterTime(-10.)' />
+        <input type='button' value='-1 Sek.' onclick='MatchClock.alterTime(-1.)' /><br>
+        No periods: <select id='match-timer-no-periods'></select><br>
+        Len. period: <select id='match-timer-len-period'></select><br>
+        Len. break: <select id='match-timer-len-break'></select><br>
+        Rolling clock? <input type='checkbox' id='match-timer-rolling' checked /><br>
     </form>
 </div> -->
 
 <div class='half' id='team-attributes' style='background: cyan;'>
+
+<h2>Team Informationen</h2>
+
 <div class='home'>
-<h2>Team information</h2>
-<h3>Home team</h3>
-Team: <select id='team-home'>
-    <option val='' default></option>
-</select><br />
 <table><tr><td>
+<h3>Heim: <select id='team-home'><option val='' default></option></h3>
+</select><br>
 <div class='team-img' id='team-img-home'></div>
 <div class='team-score' id='team-score-home'></div>
-    <button type='button' onclick='alterHomeScore(1)' >+ goal <g style="background-color:yellow">(H)</g></button><br />
-    <button type='button' onclick='alterHomeScore(-1)' >- goal</button>
+<button type='button' onclick='alterHomeScore(1)'>+ Tor <g style="background-color:yellow">(H)</g></button><br>
+<button type='button' onclick='alterHomeScore(-1)'>- Tor</button>
 </div></td></tr>
 <tr><td>
 <div class='away'>
-<h3>Away team</h3>
-Team: <select id='team-away'>
-    <option val='' default></option>
-</select><br />
+<h3>Gast: <select id='team-away'><option val='' default></option></h3>
+</select><br>
 <div class='team-img' id='team-img-away'></div>
 <div class='team-score' id='team-score-away'></div>
-    <button type='button' onclick='alterAwayScore(1)' >+ goal <g style="background-color:yellow">(A)</g></button><br />
-    <button type='button' onclick='alterAwayScore(-1)' >- goal</button>
+<button type='button' onclick='alterAwayScore(1)'>+ Tor <g style="background-color:yellow">(A)</g></button><br>
+<button type='button' onclick='alterAwayScore(-1)'>- Tor</button>
 </div>
 </td></tr></table>
 </div>
 
 <div style='clear:both;'>
-<button id='window-open'>Open external display</button> <br/><br />
-    Arm manual buzzer: <input type="checkbox" id="arm-manual-buzzer" style="transform: scale(2,2)" />, then click:<br />
-    <button id="manual-buzzer" disabled>Sound buzzer manually</button>
+<br><br>
+<button id='window-open'>Anzeige f&uuml;r zweiten Bildschirm &ouml;ffnen</button>
+<br><br>
+Sirene manuell ausl&ouml;sen: <input type="checkbox" id="arm-manual-buzzer" style="transform: scale(2,2)" /><br>
+Dann hier klicken: <button id="manual-buzzer" disabled>Sirene ausl&ouml;sen</button>
+<br><br>
+<g style="background-color: yellow">Markierter Text</g> zeigt die Taste, die anstatt der Maus f&uuml;r die angegebene Aktion genutzt werden kann.
+<br><br>
 </div>
 
-<p><g style="background-color: yellow">Highlighted text</g> shows the keyboard shortcuts than can be
-used instead of the mouse to perform certain actions.</p>
+
 
 </body>
 
