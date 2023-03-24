@@ -37,7 +37,7 @@ function resetGame() {
     // the period length and the length of the period break
     noPeriods = parseInt($('#match-timer-no-periods').val()); // mins
     lenPeriod = parseInt($('#match-timer-len-period').val()); // mins
-    lenBreak = parseInt($('#match-timer-len-break').val());; // mins
+    lenBreak = parseInt($('#match-timer-len-break').val()); // mins
     rollClockIntoPeriod = $('#match-timer-roll-into-period').prop('checked');
     rollClockIntoBreak = $('#match-timer-roll-into-break').prop('checked');
     gameStarted = false;
