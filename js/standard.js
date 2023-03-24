@@ -64,7 +64,15 @@ function resetGame() {
             // } else {
             //     $('#match-timer').text(MatchClockTock.lap('{ss}.{ll}'));
             // }
-            $('#match-timer').html(formatTime(this.lap()));
+
+            //$('#match-timer').html(formatTime(this.lap()));
+
+            if (isPlay) {
+                $('#match-timer').html(formatTime(lenPeriod*60*1000-this.lap()));
+            } else {
+                $('#match-timer').html(formatTime(lenBreak*60*1000-this.lap()));
+            }
+
             if ((!isPlay) && (this.lap() < 30*1000) && (this.lap() > 29*1000) && (!warningGiven)) {
                 lowLag.play('warningThirty');
                 warningGiven = true;
@@ -172,7 +180,8 @@ function resetGame() {
     // Game start functions
     MatchClockTock.start_time = lenPeriod * 60. * 1000.;
 //    MatchClockTock.reset();
-    MatchClockTock.start(MatchClockTock.start_time + 10); // Added millisecond avoids floating-point errors;
+    MatchClockTock.start(MatchClockTock.start_time);
+    //MatchClockTock.start(MatchClockTock.start_time + 10); // Added millisecond avoids floating-point errors;
     // otherwise, e.g., 16:00 will occasionally show up as 15:59(.999) at clock init
 //    MatchClockTock.pause();
 //    MatchClockTock.time = 0;
