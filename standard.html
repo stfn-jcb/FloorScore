@@ -87,7 +87,7 @@
 </select><br>
 <div class='team-img' id='team-img-away'></div>
 <div class='team-score' id='team-score-away'></div>
-<button type='button' onclick='alterAwayScore(1)'>+ Tor <g style="background-color:yellow">(A)</g></button><br>
+<button type='button' onclick='alterAwayScore(1)'>+ Tor <g style="background-color:yellow">(G)</g></button><br>
 <button type='button' onclick='alterAwayScore(-1)'>- Tor</button>
 </div>
 </td></tr></table>
@@ -118,7 +118,7 @@ Dann hier klicken: <button id="manual-buzzer" disabled>Sirene ausl&ouml;sen</but
             toggleClock(MatchClockTock);
         } else if (e.which == 104) {  // h
             alterHomeScore(1);
-        } else if (e.which == 97) {  // a
+        } else if (e.which == 103) {  // a
             alterAwayScore(1);
         }
     });
