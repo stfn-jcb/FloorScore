@@ -161,7 +161,7 @@ $( document ).ready(function () {
         awayImg = $('#team-img-away');
 
         var currHomeName = window.opener.$('#team-home option:selected').text();
-        $('#team-name-home td').text(currHomeName);
+        $('#team-name-home td').html('<strong>Heim:</strong><br>'+currHomeName);
         var currHomeStyle = window.opener.$('#team-img-home').attr('style');
         homeImg.attr('style', currHomeStyle);
         var currHomeScoreStyle = window.opener.$('#team-score-home').attr('style');
@@ -172,7 +172,7 @@ $( document ).ready(function () {
         homeImg.css('color', homeScore.css('color'));
 
         var currAwayName = window.opener.$('#team-away option:selected').text();
-        $('#team-name-away td').text(currAwayName);
+        $('#team-name-away td').html('<strong>Gast:</strong><br>'+currAwayName);
         var currAwayStyle = window.opener.$('#team-img-away').attr('style');
         awayImg.attr('style', currAwayStyle);
         var currAwayScoreStyle = window.opener.$('#team-score-away').attr('style');
