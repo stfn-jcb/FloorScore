@@ -23,6 +23,38 @@
             "bg-clr":"red",
             "tx-clr":"black"
         },
+    "scs":
+        {
+            "name":"SCS Berlin",
+            "img":"./img/team-img/berlinscs.png",
+            "img-clr":"white",
+            "bg-clr":"blue",
+            "tx-clr":"white"
+        },
+    "rapid":
+        {
+            "name":"SSV Rapid",
+            "img":"./img/team-img/ssvrapid.png",
+            "img-clr":"green",
+            "bg-clr":"green",
+            "tx-clr":"white"
+        },
+    "rangsdorf":
+        {
+            "name":"TSV Rangsdorf",
+            "img":"./img/team-img/tsvrangsdorf.png",
+            "img-clr":"yellow",
+            "bg-clr":"yellow",
+            "tx-clr":"black"
+        },
+    "uhc":
+        {
+            "name":"UHC Berlin",
+            "img":"./img/team-img/uhcberlin.png",
+            "img-clr":"white",
+            "bg-clr":"white",
+            "tx-clr":"black"
+        },
     "tegel":
         {
             "name":"VfL Tegel",
